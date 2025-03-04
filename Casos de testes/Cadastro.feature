@@ -6,6 +6,9 @@ Funcionalidade: Cadastro de usuário
         E informo o nome de usuário com 12 caracteres
         E informo o "E-mail" como "massadetestesmuda@gmail.com"
         E confirmo clico em "Continuar"
+        E copio as palavras chave
+        E colo na tela de inserção de palavras chave
+        E clico em "Continuar"
         Então o usuário é cadastrado com sucesso
 
     Cenário: Cadastro de usuário com somente 1 nome
