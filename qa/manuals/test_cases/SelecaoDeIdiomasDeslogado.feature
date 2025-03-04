@@ -1,3 +1,4 @@
+<<<<<<< HEAD:qa/manuals/test_cases/SelecaoDeIdiomasDeslogado.feature
 Funcionalidade: Seleção de idiomas na home deslogada
 
 @regressivo @funcional @nao-bloqueante @smoke
@@ -33,4 +34,36 @@ Funcionalidade: Seleção de idiomas na home deslogada
         Dado que acesso a página inicial (https://muda.cambiatus.io/)
         Quando aciono o botão "Linguagens"
         E seleciono o idioma "ES"
+=======
+Funcionalidade: Seleção de idiomas na home deslogada
+
+    Cenário: Seleção de idioma "Pt-BR" na home deslogada
+        Dado que acesso a página inicial (https://muda.cambiatus.io/)
+        Quando aciono o botão "Linguagens"
+        E seleciono o idioma "Português (Brasil)"
+        Então a página é traduzida para o idioma "Português (Brasil)"
+
+    Cenário: Seleção de idioma "En-US" na home deslogada
+        Dado que acesso a página inicial (https://muda.cambiatus.io/)
+        Quando aciono o botão "Linguagens"
+        E seleciono o idioma "En-US"
+        Então a página é traduzida para o idioma "Inglês (Estados Unidos)"
+
+    Cenário: Seleção de idioma "AMH" na home deslogada
+        Dado que acesso a página inicial (https://muda.cambiatus.io/)
+        Quando aciono o botão "Linguagens"
+        E seleciono o idioma "AMH"
+        Então a página é traduzida para o idioma "Amárico"
+
+    Cenário: Seleção de idioma "CAT" na home deslogada
+        Dado que acesso a página inicial (https://muda.cambiatus.io/)
+        Quando aciono o botão "Linguagens"
+        E seleciono o idioma "CAT"
+        Então a página é traduzida para o idioma "Catalão"
+
+    Cenário: Seleção de idioma "ES" na home deslogada
+        Dado que acesso a página inicial (https://muda.cambiatus.io/)
+        Quando aciono o botão "Linguagens"
+        E seleciono o idioma "ES"
+>>>>>>> 33953d0 (Atualização dos casos de teste):Casos de testes/SelecaoDeIdiomasDeslogado.feature
         Então a página é traduzida para o idioma "Espanhol"
