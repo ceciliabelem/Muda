@@ -67,7 +67,3 @@ Cenário: Remover filtros aplicados
     E seleciono a localidade "Virtual"
     E removo todos os filtros aplicados
     Então todas as ofertas devem ser exibidas
-
-
-
-

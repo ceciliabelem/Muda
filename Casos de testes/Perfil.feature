@@ -98,5 +98,35 @@ Funcionalidade: Perfil
         E a caixa de edição fica vazia
 
 
-    Cenário: Acessar detalhes de transferência
+    Cenário: Alterar foto do perfil
+        Dado que acesso a página de "perfil"
+        E aciono o botão "Editar perfil"
+        Quando aciono o botão "Alterar foto do perfil"
+        E abre a modal "Editar imagem"
+        E visualizo:
+            | Título: "Editar imagem" |
+            | Botão "Fechar" |
+            | Imagem de perfil carregada |
+            | Botão " Menos zoom" |
+            | Botão "Mais zoom" |
+            | Botão "Excluir" |
+            | Botão "Substituir" |
+            | Botão "Salvar" |
+        E aciono o botão "Substituir"
+        E seleciono uma imagem válida
+        E ajusto o zoom da imagem
+        E aciono o botão "Salvar"
+        E aciono o botão "Salvar" novamente
+        Então sou direcionada para a tela inicial de perfil
+        Então visualizo a mensagem "Perfil salvo com sucesso"
+        E a imagem é atualizada na tela inicial de perfil
 
+    Cenário: Excluir foto do perfil
+        Dado que acesso a página de "perfil"
+        E aciono o botão "Editar perfil"
+        E aciono o botão "Alterar foto do perfil"
+        E abre a modal "Editar imagem"
+        E aciono o botão "Excluir"
+        
+        Então sou direcionada para a tela de "Editar perfil"
+        E a imagem é apagada, sendo exibido um ícone com desenho de câmera fotográfica
