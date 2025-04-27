@@ -1,0 +1,593 @@
+@import './quill.snow.css';
+@import './elm-datepicker.css';
+
+@tailwind base;
+
+@tailwind components;
+
+:root {
+  --white: #f6f6f6;
+  --black: #4a4a4a;
+  --gray: #eee;
+  --font-family: 'Nunito Sans', 'Lato', 'San Francisco', 'Helvetica', 'Verdana', sans-serif;
+}
+
+/* Typography */
+
+body {
+  background-color: #f6f6f6;
+  font-family: var(--font-family);
+  color: var(--black);
+}
+
+body > * {
+  @apply text-base;
+}
+
+/* End of Typography */
+
+/* Button */
+
+@layer components {
+  .button {
+    @apply uppercase text-base font-bold leading-5 flex items-center justify-center text-center w-40 h-10 px-2 focus-ring;
+  }
+
+  .button:disabled {
+    @apply bg-opacity-75 button-disabled;
+  }
+
+  .button-primary {
+    @apply bg-orange-300 text-white rounded-super hover:bg-orange-100 focus-visible:bg-orange-100 focus-visible:outline-none;
+  }
+
+  .button-secondary {
+    @apply bg-white text-orange-300 rounded-full border hover:border-orange-300 focus-visible:border-orange-300 focus-visible:ring-orange-500 focus-visible:ring-opacity-25 focus-visible:outline-none;
+  }
+
+  .button-sm {
+    @apply py-1 px-4 h-8;
+  }
+
+  .button-lg {
+    @apply py-3 px-6 h-12;
+  }
+
+  .button-success {
+    @apply bg-green text-white rounded-full;
+  }
+
+  .button-disabled {
+    @apply bg-gray-500 text-gray-900 rounded-super pointer-events-none;
+  }
+
+  .button-danger {
+    @apply button-secondary text-red focus-visible:ring-red focus-visible:ring-opacity-20 hover:border-red;
+  }
+}
+
+/* End of Button */
+
+/* Form */
+
+@layer components {
+  .input-border {
+    @apply border border-gray-500 rounded-md ring-0 duration-100 focus:ring focus-within:ring;
+
+    transition-property: box-shadow, color, border-color;
+  }
+
+  .input-border:not(.with-error) {
+    @apply focus-within:border-green focus-within:ring-green focus-within:ring-opacity-50;
+  }
+
+  .input-border.with-error {
+    @apply border-red focus-within:ring-red focus-within:ring-opacity-30;
+  }
+
+  .with-error {
+    @apply border-red text-red focus:border-red;
+  }
+
+  .label {
+    @apply text-black font-bold uppercase text-sm mb-2 block;
+  }
+
+  /* Input */
+
+  .input {
+    @apply px-3 py-2 h-12 bg-white placeholder-gray-900 outline-none text-black input-border text-base;
+  }
+
+  .input:disabled {
+    @apply bg-gray-500;
+  }
+
+  textarea.input {
+    @apply h-40;
+  }
+
+  /* End of Input */
+
+  /* Checkbox */
+
+  .form-checkbox {
+    @apply h-5 w-5 text-green rounded-sm input-border disabled:bg-gray-100;
+  }
+
+  .form-checkbox:checked {
+    @apply text-4xl;
+
+    background-image: url('/icons/checkbox.svg');
+  }
+
+  /* End of Checkbox */
+
+  /* Toggle */
+
+  [type='checkbox']:focus-visible + .form-switch-label2 {
+    @apply focus:outline-none ring ring-green ring-opacity-50 active:ring-0;
+  }
+
+  [type='checkbox']:focus-visible + .form-switch-label2.with-error {
+    @apply ring-red ring-opacity-30;
+  }
+
+  /* End of Toggle */
+
+  /* Select */
+
+  .form-select {
+    @apply input pr-10 bg-no-repeat focus:outline-none;
+
+    background-position: right 0.5rem center;
+    background-size: 2rem;
+    background-image: url('/icons/select-arrow.svg');
+  }
+
+  .form-select-icon {
+    @apply bg-no-repeat;
+
+    background-position: right 0.5rem center;
+    background-size: 2rem;
+    background-image: url('/icons/select-arrow.svg');
+  }
+
+  /* End of Select */
+
+  /* Radio */
+
+  .form-radio {
+    @apply h-5 w-5 bg-none rounded-full border text-green input-border checked:bg-none disabled:text-gray-900 disabled:border-gray-900;
+  }
+
+  /* End of Radio */
+
+  /* File */
+
+  .form-file:focus-visible + label .file-decoration,
+  .form-file:focus-visible + label.file-decoration {
+    @apply outline-none ring ring-green ring-opacity-50;
+  }
+
+  /* End of File */
+}
+
+/* End of form */
+
+/* Tooltip */
+
+.tooltip-container p {
+  visibility: hidden;
+}
+
+.tooltip-container:hover p {
+  visibility: visible;
+}
+
+.tooltip-container p::after {
+  content: ' ';
+  position: absolute;
+  bottom: 100%;
+  right: 5%;
+  margin-left: -5px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent black transparent;
+}
+
+/* End of Tooltip */
+
+/* Icon Tooltip */
+
+.icon-tooltip {
+  @apply relative flex;
+}
+
+.icon-tooltip .icon-tooltip-content {
+  @apply invisible absolute top-full bg-black rounded-sm p-2 text-sm text-white;
+
+  width: 18em;
+  line-height: 1.4;
+  left: -3em;
+  margin-top: 10px;
+}
+
+.icon-tooltip:hover .icon-tooltip-content {
+  @apply visible;
+}
+
+.icon-tooltip::after {
+  visibility: hidden;
+  position: absolute;
+  content: ' ';
+  left: 50%;
+  margin-left: -10px;
+  top: 7px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent black transparent;
+}
+
+.icon-tooltip:hover::after {
+  @apply visible;
+}
+
+/* End of Icon Tooltip */
+
+/* Modal */
+
+.modal {
+  @apply z-50 fixed inset-0;
+
+  transition: opacity 0.25s ease;
+}
+
+.modal-bg {
+  @apply bg-black inset-0 fixed opacity-50;
+}
+
+.modal-content {
+  @apply bg-white rounded-t-lg absolute left-0 bottom-0 w-full flex flex-col;
+
+  min-height: 4rem;
+  max-height: 60%;
+}
+
+.modal-content-lg {
+  max-height: 80%;
+}
+
+.modal-content-full {
+  max-height: 95%;
+}
+
+.modal-header {
+  @apply w-full font-semibold text-lg p-4 pb-2 flex justify-center;
+}
+
+.modal-body {
+  @apply p-4 pt-0 overflow-y-auto flex-grow;
+}
+
+.modal-footer {
+  @apply flex flex-wrap justify-center items-center bg-gray-100 p-4;
+}
+
+.modal-cancel {
+  @apply button button-secondary w-full mb-4;
+}
+
+.modal-accept {
+  @apply button button-primary w-full;
+}
+
+@screen md {
+  .modal-content {
+    @apply max-w-3xl top-modal z-10 bottom-auto left-1/2 transform mx-auto rounded-lg;
+
+    /* Using -translate-y-1/2 and -translate-x-1/2 doesn't work because they
+    overwrite each other, so we just set the variables tailwind uses */
+    --tw-translate-x: -50%;
+  }
+
+  .modal-content-lg,
+  .modal-content-full {
+    @apply top-1/2;
+
+    --tw-translate-y: -50%;
+  }
+
+  .modal-footer {
+    @apply rounded-b-lg;
+  }
+
+  .modal-cancel {
+    @apply mb-0 w-48 mr-8;
+  }
+
+  .modal-accept {
+    @apply w-48;
+  }
+}
+
+/* End of Modal */
+
+/* Tag */
+
+.tag {
+  @apply uppercase rounded text-sm py-1 px-5;
+}
+
+/* End of Tag */
+
+/* Objectives */
+
+.action-verifier svg {
+  fill: #eee;
+}
+
+/* End of Objectives */
+
+.spinner-light {
+  border-color: white;
+  border-right-color: transparent;
+}
+
+/* Claims */
+
+.claim-photo-thumb {
+  @apply cursor-pointer w-24 h-16 flex items-center justify-center rounded-sm;
+}
+
+.claim-photo-thumb:hover {
+  @apply ring;
+}
+
+/* End of Claims */
+
+/* Extra utilities */
+
+/* For more information on adding new utilities, see
+https://tailwindcss.com/docs/adding-new-utilities */
+
+@layer utilities {
+  .flex-basis-0 {
+    flex-basis: 0;
+  }
+
+  .max-w-screen {
+    max-width: 100vw;
+  }
+
+  .fill-mode-none {
+    animation-fill-mode: none;
+  }
+
+  .truncate-children > :first-child {
+    @apply truncate;
+  }
+
+  .truncate-children > :not(:first-child) {
+    @apply hidden;
+  }
+
+  .hide-children-from-2 > :nth-child(n + 2) {
+    @apply hidden;
+  }
+
+  .focus-ring {
+    @apply focus:outline-none focus-visible:ring ring-green ring-opacity-50 active:ring-0;
+  }
+
+  * + .sibling-focus {
+    @apply ring-0 transition-shadow;
+  }
+
+  *:focus + .sibling-focus {
+    @apply ring;
+  }
+
+  .form-error {
+    /* validation message for the field */
+    @apply text-red text-sm uppercase tracking-wide block mt-2 animate-fade-in-from-above;
+  }
+
+  .form-error-on-dark-bg {
+    @apply form-error text-lightred;
+  }
+
+  .animation-delay-150 {
+    animation-delay: 150ms;
+  }
+
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .shadow-form-control {
+    --shadow-size: 1.25rem;
+  }
+
+  .shadow-form-control:checked {
+    --shadow-size: 0.25rem;
+  }
+
+  /* Hides the default triangle on a summary element inside a details element.
+  The `-webkit-details-marker` and `marker` are needed for Safari */
+  .marker-hidden {
+    @apply list-none;
+  }
+
+  .marker-hidden::-webkit-details-marker {
+    @apply hidden;
+  }
+
+  .marker-hidden::marker {
+    @apply hidden;
+  }
+
+  .inline-children > * {
+    @apply inline;
+  }
+
+  /* Scroll snap utilities are available on tw v3, but not on v2 */
+  .snap-center {
+    scroll-snap-align: center;
+  }
+
+  .snap-always {
+    scroll-snap-stop: always;
+  }
+
+  .snap-x {
+    scroll-snap-type: x mandatory;
+  }
+
+  .scrollbar-hidden {
+    /* Hide scrollbar in mozilla based browsers */
+    overflow: -moz-scrollbars-none;
+    scrollbar-width: none;
+
+    /* Hide scrollbar in IE */
+    -ms-overflow-style: none;
+  }
+
+  .scrollbar-hidden::-webkit-scrollbar {
+    width: 0 !important;
+    display: none;
+  }
+
+  .outline-offset-0 {
+    outline-offset: 0;
+  }
+}
+
+/* End of extra utilities */
+
+/* Markdown Viewer classes */
+
+.markdown-viewer ul {
+  @apply list-disc list-inside;
+}
+
+.markdown-viewer ol {
+  @apply list-decimal list-inside;
+}
+
+.markdown-viewer a {
+  @apply underline hover:opacity-80;
+}
+
+.markdown-viewer.colored-links a {
+  @apply text-orange-300;
+}
+
+.markdown-viewer h1 {
+  @apply text-4xl;
+}
+
+.markdown-viewer h2 {
+  @apply text-2xl;
+}
+
+/* End of Markdown Viewer classes
+
+/* QuillJS classes */
+
+.ql-toolbar.ql-snow {
+  @apply bg-white border-0 border-b border-gray-500 rounded-t-md px-3 py-2;
+}
+
+.ql-container.ql-snow {
+  @apply border-none;
+}
+
+.ql-editor {
+  @apply bg-white text-black text-base rounded-b-md px-3 py-2 min-h-36 max-h-48 focus:outline-none;
+
+  font-family: var(--font-family);
+}
+
+.ql-container.ql-snow.ql-disabled .ql-editor {
+  @apply bg-gray-500;
+}
+
+.ql-snow .ql-editor a {
+  @apply text-orange-500 no-underline hover:underline;
+}
+
+.ql-editor.ql-blank::before {
+  /* QuillJS's placeholder */
+  @apply text-gray-900 not-italic;
+}
+
+.ql-stroke {
+  @apply text-gray-600;
+
+  stroke: currentColor !important;
+}
+
+.ql-toolbar.ql-snow > span.ql-formats {
+  @apply mr-2;
+}
+
+.ql-snow .ql-fill {
+  @apply text-gray-600;
+
+  fill: currentColor !important;
+}
+
+.ql-snow.ql-toolbar button:hover .ql-stroke,
+.ql-snow.ql-toolbar button:hover .ql-fill,
+.ql-snow.ql-toolbar button:focus .ql-stroke,
+.ql-snow.ql-toolbar button:focus .ql-fill,
+.ql-snow.ql-toolbar button.ql-active .ql-stroke,
+.ql-snow.ql-toolbar button.ql-active .ql-fill {
+  @apply text-indigo-500;
+}
+
+.ql-snow .ql-tooltip {
+  @apply rounded-md border border-gray-200 shadow-lg z-10 py-2 px-4;
+
+  font-family: var(--font-family);
+}
+
+.ql-snow .ql-tooltip[data-mode='link']::before {
+  content: '';
+}
+
+.ql-snow .ql-tooltip::before {
+  content: '';
+}
+
+.ql-snow .ql-tooltip:not(.ql-hidden) {
+  @apply grid gap-2 md:grid-cols-2;
+}
+
+.ql-snow .ql-tooltip a.ql-preview {
+  @apply max-w-full text-center w-full text-orange-500 no-underline hover:underline md:col-span-2;
+}
+
+.ql-snow .ql-tooltip a.ql-action {
+  @apply button button-primary;
+}
+
+.ql-snow .ql-tooltip a.ql-action::after {
+  @apply border-0 mr-0;
+
+  content: attr(data-edit-text);
+}
+
+.ql-snow .ql-tooltip a.ql-remove {
+  @apply button button-secondary;
+}
+
+.ql-snow .ql-tooltip a.ql-remove::before {
+  content: attr(data-remove-text);
+}
+
+/* End of QuillJS classes */
+
+/* https://tailwindcss.com/docs/extracting-components#extracting-css-components-with-apply */
+@tailwind utilities;
