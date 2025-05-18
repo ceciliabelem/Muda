@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.3 on win32)" generated="2025-05-17T17:04:25.666269" rpa="false" schemaversion="5">
+<suite id="s1" name="Login" source="C:\Users\Ivan\Documents\Trabalho_estudo\Muda-frontend\qa\automation\login.robot">
+<test id="s1-t1" name="Login com sucesso" line="12">
+<kw name="Abrir Página de Login" owner="keywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-05-17T17:04:26.827600" level="INFO">Opening browser 'chrome' to base url 'https://muda.cambiatus.io/'.</msg>
+<arg>${url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-05-17T17:04:26.826749" elapsed="4.982600"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-05-17T17:04:31.809785" elapsed="7.192393"/>
+</kw>
+<arg>${URL_LOGIN}</arg>
+<status status="PASS" start="2025-05-17T17:04:26.820400" elapsed="12.182108"/>
+</kw>
+<kw name="Acionar Botão" owner="keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-17T17:04:39.005886" level="INFO">Clicking element 'xpath=//button[contains(., 'Já sou membro')]'.</msg>
+<msg time="2025-05-17T17:04:39.259577" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-05-17T17:04:39.260138" level="FAIL">Element with locator 'xpath=//button[contains(., 'Já sou membro')]' not found.</msg>
+<arg>xpath=//button[contains(., '${nome_botao}')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2025-05-17T17:04:39.004644" elapsed="0.555257">Element with locator 'xpath=//button[contains(., 'Já sou membro')]' not found.</status>
+</kw>
+<arg>Já sou membro</arg>
+<status status="FAIL" start="2025-05-17T17:04:39.003358" elapsed="0.557645">Element with locator 'xpath=//button[contains(., 'Já sou membro')]' not found.</status>
+</kw>
+<kw name="Inserir Palavras Chave" owner="keywords">
+<arg>${PALAVRAS_CHAVE_TESTE}</arg>
+<status status="NOT RUN" start="2025-05-17T17:04:39.607793" elapsed="0.000166"/>
+</kw>
+<kw name="Clicar em Continuar" owner="keywords">
+<status status="NOT RUN" start="2025-05-17T17:04:39.613794" elapsed="0.000140"/>
+</kw>
+<kw name="Inserir e Confirmar Pin" owner="keywords">
+<arg>${PIN_TESTE}</arg>
+<status status="NOT RUN" start="2025-05-17T17:04:39.614568" elapsed="0.000109"/>
+</kw>
+<kw name="Verificar Redirecionamento Painel Logado" owner="keywords">
+<status status="NOT RUN" start="2025-05-17T17:04:39.615214" elapsed="0.000104"/>
+</kw>
+<tag>critico</tag>
+<tag>funcional</tag>
+<tag>regressivo</tag>
+<tag>smoke</tag>
+<status status="FAIL" start="2025-05-17T17:04:26.816953" elapsed="12.799123">Element with locator 'xpath=//button[contains(., 'Já sou membro')]' not found.</status>
+</test>
+<test id="s1-t2" name="Login com palavras chave inválidas" line="27">
+<kw name="Abrir Página de Login" owner="keywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-05-17T17:04:39.623202" level="INFO">Opening browser 'chrome' to base url 'https://muda.cambiatus.io/'.</msg>
+<arg>${url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-05-17T17:04:39.622859" elapsed="8.652484"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-05-17T17:04:48.275702" elapsed="0.039308"/>
+</kw>
+<arg>${URL_LOGIN}</arg>
+<status status="PASS" start="2025-05-17T17:04:39.622274" elapsed="8.693133"/>
+</kw>
+<kw name="Acionar Botão" owner="keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-17T17:04:48.317283" level="INFO">Clicking element 'xpath=//button[contains(., 'Já sou membro')]'.</msg>
+<msg time="2025-05-17T17:04:48.559057" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-05-17T17:04:48.559492" level="FAIL">Element with locator 'xpath=//button[contains(., 'Já sou membro')]' not found.</msg>
+<arg>xpath=//button[contains(., '${nome_botao}')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2025-05-17T17:04:48.316852" elapsed="0.245513">Element with locator 'xpath=//button[contains(., 'Já sou membro')]' not found.</status>
+</kw>
+<arg>Já sou membro</arg>
+<status status="FAIL" start="2025-05-17T17:04:48.316098" elapsed="0.246656">Element with locator 'xpath=//button[contains(., 'Já sou membro')]' not found.</status>
+</kw>
+<kw name="Inserir Palavras Chave" owner="keywords">
+<arg>${PALAVRAS_CHAVE_INVALIDAS}</arg>
+<status status="NOT RUN" start="2025-05-17T17:04:48.563616" elapsed="0.000142"/>
+</kw>
+<kw name="Clicar em Continuar" owner="keywords">
+<status status="NOT RUN" start="2025-05-17T17:04:48.564351" elapsed="0.000096"/>
+</kw>
+<kw name="Verificar Alerta" owner="keywords">
+<arg>${ALERTA_PALAVRAS_INVALIDAS}</arg>
+<status status="NOT RUN" start="2025-05-17T17:04:48.564924" elapsed="0.000089"/>
+</kw>
+<tag>critico</tag>
+<tag>funcional</tag>
+<tag>regressivo</tag>
+<status status="FAIL" start="2025-05-17T17:04:39.620691" elapsed="8.944861">Element with locator 'xpath=//button[contains(., 'Já sou membro')]' not found.</status>
+</test>
+<test id="s1-t3" name="Login com menos de 12 palavras-chave" line="40">
+<kw name="Abrir Página de Login" owner="keywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-05-17T17:04:48.571498" level="INFO">Opening browser 'chrome' to base url 'https://muda.cambiatus.io/'.</msg>
+<arg>${url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-05-17T17:04:48.570298" elapsed="5.622836"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-05-17T17:04:54.193530" elapsed="0.055417"/>
+</kw>
+<arg>${URL_LOGIN}</arg>
+<status status="PASS" start="2025-05-17T17:04:48.569121" elapsed="5.680062"/>
+</kw>
+<kw name="Acionar Botão" owner="keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-17T17:04:54.251734" level="INFO">Clicking element 'xpath=//button[contains(., 'Já sou membro')]'.</msg>
+<msg time="2025-05-17T17:04:54.667491" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-05-17T17:04:54.667800" level="FAIL">Element with locator 'xpath=//button[contains(., 'Já sou membro')]' not found.</msg>
+<arg>xpath=//button[contains(., '${nome_botao}')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2025-05-17T17:04:54.251078" elapsed="0.419979">Element with locator 'xpath=//button[contains(., 'Já sou membro')]' not found.</status>
+</kw>
+<arg>Já sou membro</arg>
+<status status="FAIL" start="2025-05-17T17:04:54.250337" elapsed="0.421214">Element with locator 'xpath=//button[contains(., 'Já sou membro')]' not found.</status>
+</kw>
+<kw name="Inserir Palavras Chave" owner="keywords">
+<arg>${PALAVRAS_CHAVE_11}</arg>
+<status status="NOT RUN" start="2025-05-17T17:04:54.672434" elapsed="0.000134"/>
+</kw>
+<kw name="Clicar em Continuar" owner="keywords">
+<status status="NOT RUN" start="2025-05-17T17:04:54.673287" elapsed="0.000128"/>
+</kw>
+<kw name="Verificar Alerta" owner="keywords">
+<arg>${ALERTA_11_PALAVRAS}</arg>
+<status status="NOT RUN" start="2025-05-17T17:04:54.674261" elapsed="0.000116"/>
+</kw>
+<tag>critico</tag>
+<tag>funcional</tag>
+<tag>regressivo</tag>
+<status status="FAIL" start="2025-05-17T17:04:48.567837" elapsed="6.107126">Element with locator 'xpath=//button[contains(., 'Já sou membro')]' not found.</status>
+</test>
+<test id="s1-t4" name="Tentativa de login sem inserir palavras-chave" line="53">
+<kw name="Abrir Página de Login" owner="keywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-05-17T17:04:54.681567" level="INFO">Opening browser 'chrome' to base url 'https://muda.cambiatus.io/'.</msg>
+<arg>${url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-05-17T17:04:54.680888" elapsed="3.147861"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-05-17T17:04:57.829288" elapsed="3.419318"/>
+</kw>
+<arg>${URL_LOGIN}</arg>
+<status status="PASS" start="2025-05-17T17:04:54.679662" elapsed="6.569175"/>
+</kw>
+<kw name="Acionar Botão" owner="keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-17T17:05:01.251599" level="INFO">Clicking element 'xpath=//button[contains(., 'Já sou membro')]'.</msg>
+<msg time="2025-05-17T17:05:01.485556" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-05-17T17:05:01.485848" level="FAIL">Element with locator 'xpath=//button[contains(., 'Já sou membro')]' not found.</msg>
+<arg>xpath=//button[contains(., '${nome_botao}')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2025-05-17T17:05:01.251011" elapsed="0.238352">Element with locator 'xpath=//button[contains(., 'Já sou membro')]' not found.</status>
+</kw>
+<arg>Já sou membro</arg>
+<status status="FAIL" start="2025-05-17T17:05:01.250258" elapsed="0.239640">Element with locator 'xpath=//button[contains(., 'Já sou membro')]' not found.</status>
+</kw>
+<kw name="Clicar em Continuar" owner="keywords">
+<status status="NOT RUN" start="2025-05-17T17:05:01.498824" elapsed="0.000121"/>
+</kw>
+<kw name="Verificar Alerta" owner="keywords">
+<arg>${ALERTA_12_PALAVRAS}</arg>
+<status status="NOT RUN" start="2025-05-17T17:05:01.529881" elapsed="0.000121"/>
+</kw>
+<tag>critico</tag>
+<tag>funcional</tag>
+<tag>regressivo</tag>
+<status status="FAIL" start="2025-05-17T17:04:54.678183" elapsed="6.860961">Element with locator 'xpath=//button[contains(., 'Já sou membro')]' not found.</status>
+</test>
+<test id="s1-t5" name="Tentativa de login com visualização do PIN inserido" line="64">
+<kw name="Abrir Página de Login" owner="keywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-05-17T17:05:01.554705" level="INFO">Opening browser 'chrome' to base url 'https://muda.cambiatus.io/'.</msg>
+<arg>${url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-05-17T17:05:01.554225" elapsed="5.044858"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<msg time="2025-05-17T17:05:06.659631" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=136.0.7103.114)
+Stacktrace:
+	GetHandleVerifier [0x00007FF71AA5A145+76773]
+	GetHandleVerifier [0x00007FF71AA5A1A0+76864]
+	(No symbol) [0x00007FF71A818F7A]
+	(No symbol) [0x00007FF71A7F1B31]
+	(No symbol) [0x00007FF71A89EA8E]
+	(No symbol) [0x00007FF71A8BE9C2]
+	(No symbol) [0x00007FF71A897133]
+	(No symbol) [0x00007FF71A8604D1]
+	(No symbol) [0x00007FF71A861263]
+	GetHandleVerifier [0x00007FF71AD1A8ED+2962317]
+	GetHandleVerifier [0x00007FF71AD14EC2+2939234]
+	GetHandleVerifier [0x00007FF71AD32FF3+3062419]
+	GetHandleVerifier [0x00007FF71AA74B9A+185914]
+	GetHandleVerifier [0x00007FF71AA7C78F+217647]
+	GetHandleVerifier [0x00007FF71AA62A44+111844]
+	GetHandleVerifier [0x00007FF71AA62BF2+112274]
+	GetHandleVerifier [0x00007FF71AA48A79+5401]
+	BaseThreadInitThunk [0x00007FF84F047374+20]
+	RtlUserThreadStart [0x00007FF85035CC91+33]
+</msg>
+<msg time="2025-05-17T17:05:06.702398" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=136.0.7103.114)
+Stacktrace:
+	GetHandleVerifier [0x00007FF71AA5A145+76773]
+	GetHandleVerifier [0x00007FF71AA5A1A0+76864]
+	(No symbol) [0x00007FF71A818F7A]
+	(No symbol) [0x00007FF71A7F1B31]
+	(No symbol) [0x00007FF71A89EA8E]
+	(No symbol) [0x00007FF71A8BE9C2]
+	(No symbol) [0x00007FF71A897133]
+	(No symbol) [0x00007FF71A8604D1]
+	(No symbol) [0x00007FF71A861263]
+	GetHandleVerifier [0x00007FF71AD1A8ED+2962317]
+	GetHandleVerifier [0x00007FF71AD14EC2+2939234]
+	GetHandleVerifier [0x00007FF71AD32FF3+3062419]
+	GetHandleVerifier [0x00007FF71AA74B9A+185914]
+	GetHandleVerifier [0x00007FF71AA7C78F+217647]
+	GetHandleVerifier [0x00007FF71AA62A44+111844]
+	GetHandleVerifier [0x00007FF71AA62BF2+112274]
+	GetHandleVerifier [0x00007FF71AA48A79+5401]
+	BaseThreadInitThunk [0x00007FF84F047374+20]
+	RtlUserThreadStart [0x00007FF85035CC91+33]
+</msg>
+<doc>Maximizes current browser window.</doc>
+<status status="FAIL" start="2025-05-17T17:05:06.599455" elapsed="0.226232">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=136.0.7103.114)
+Stacktrace:
+	GetHandleVerifier [0x00007FF71AA5A145+76773]
+	GetHandleVerifier [0x00007FF71AA5A1A0+76864]
+	(No symbol) [0x00007FF71A818F7A]
+	(No symbol) [0x00007FF71A7F1B31]
+	(No symbol) [0x00007FF71A89EA8E]
+	(No symbol) [0x00007FF71A8BE9C2]
+	(No symbol) [0x00007FF71A897133]
+	(No symbol) [0x00007FF71A8604D1]
+	(No symbol) [0x00007FF71A861263]
+	GetHandleVerifier [0x00007FF71AD1A8ED+2962317]
+	GetHandleVerifier [0x00007FF71AD14EC2+2939234]
+	GetHandleVerifier [0x00007FF71AD32FF3+3062419]
+	GetHandleVerifier [0x00007FF71AA74B9A+185914]
+	GetHandleVerifier [0x00007FF71AA7C78F+217647]
+	GetHandleVerifier [0x00007FF71AA62A44+111844]
+	GetHandleVerifier [0x00007FF71AA62BF2+112274]
+	GetHandleVerifier [0x00007FF71AA48A79+5401]
+	BaseThreadInitThunk [0x00007FF84F047374+20]
+	RtlUserThreadStart [0x00007FF85035CC91+33]
+</status>
+</kw>
+<arg>${URL_LOGIN}</arg>
+<status status="FAIL" start="2025-05-17T17:05:01.553390" elapsed="5.272693">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=136.0.7103.114)
+Stacktrace:
+	GetHandleVerifier [0x00007FF71AA5A145+76773]
+	GetHandleVerifier [0x00007FF71AA5A1A0+76864]
+	(No symbol) [0x00007FF71A818F7A]
+	(No symbol) [0x00007FF71A7F1B31]
+	(No symbol) [0x00007FF71A89EA8E]
+	(No symbol) [0x00007FF71A8BE9C2]
+	(No symbol) [0x00007FF71A897133]
+	(No symbol) [0x00007FF71A8604D1]
+	(No symbol) [0x00007FF71A861263]
+	GetHandleVerifier [0x00007FF71AD1A8ED+2962317]
+	GetHandleVerifier [0x00007FF71AD14EC2+2939234]
+	GetHandleVerifier [0x00007FF71AD32FF3+3062419]
+	GetHandleVerifier [0x00007FF71AA74B9A+185914]
+	GetHandleVerifier [0x00007FF71AA7C78F+217647]
+	GetHandleVerifier [0x00007FF71AA62A44+111844]
+	GetHandleVerifier [0x00007FF71AA62BF2+112274]
+	GetHandleVerifier [0x00007FF71AA48A79+5401]
+	BaseThreadInitThunk [0x00007FF84F047374+20]
+	RtlUserThreadStart [0x00007FF85035CC91+33]
+</status>
+</kw>
+<kw name="Acionar Botão" owner="keywords">
+<arg>Já sou membro</arg>
+<status status="NOT RUN" start="2025-05-17T17:05:06.831361" elapsed="0.000123"/>
+</kw>
+<kw name="Inserir Palavras Chave" owner="keywords">
+<arg>${PALAVRAS_CHAVE_TESTE}</arg>
+<status status="NOT RUN" start="2025-05-17T17:05:06.857396" elapsed="0.000126"/>
+</kw>
+<kw name="Clicar em Continuar" owner="keywords">
+<status status="NOT RUN" start="2025-05-17T17:05:06.866975" elapsed="0.000107"/>
+</kw>
+<kw name="Inserir Pin" owner="keywords">
+<arg>${PIN_TESTE}</arg>
+<status status="NOT RUN" start="2025-05-17T17:05:06.886360" elapsed="0.000143"/>
+</kw>
+<kw name="Confirmar Pin" owner="keywords">
+<arg>${PIN_TESTE}</arg>
+<status status="NOT RUN" start="2025-05-17T17:05:06.917638" elapsed="0.000143"/>
+</kw>
+<kw name="Acionar Botão" owner="keywords">
+<arg>Mostrar PIN</arg>
+<status status="NOT RUN" start="2025-05-17T17:05:06.931368" elapsed="0.000311"/>
+</kw>
+<kw name="Verificar PIN Exibido" owner="keywords">
+<status status="NOT RUN" start="2025-05-17T17:05:06.936159" elapsed="0.000107"/>
+</kw>
+<tag>funcional</tag>
+<tag>nao-bloqueante</tag>
+<tag>regressivo</tag>
+<status status="FAIL" start="2025-05-17T17:05:01.552141" elapsed="5.385697">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=136.0.7103.114)
+Stacktrace:
+	GetHandleVerifier [0x00007FF71AA5A145+76773]
+	GetHandleVerifier [0x00007FF71AA5A1A0+76864]
+	(No symbol) [0x00007FF71A818F7A]
+	(No symbol) [0x00007FF71A7F1B31]
+	(No symbol) [0x00007FF71A89EA8E]
+	(No symbol) [0x00007FF71A8BE9C2]
+	(No symbol) [0x00007FF71A897133]
+	(No symbol) [0x00007FF71A8604D1]
+	(No symbol) [0x00007FF71A861263]
+	GetHandleVerifier [0x00007FF71AD1A8ED+2962317]
+	GetHandleVerifier [0x00007FF71AD14EC2+2939234]
+	GetHandleVerifier [0x00007FF71AD32FF3+3062419]
+	GetHandleVerifier [0x00007FF71AA74B9A+185914]
+	GetHandleVerifier [0x00007FF71AA7C78F+217647]
+	GetHandleVerifier [0x00007FF71AA62A44+111844]
+	GetHandleVerifier [0x00007FF71AA62BF2+112274]
+	GetHandleVerifier [0x00007FF71AA48A79+5401]
+	BaseThreadInitThunk [0x00007FF84F047374+20]
+	RtlUserThreadStart [0x00007FF85035CC91+33]
+</status>
+</test>
+<test id="s1-t6" name="Tentativa de login com PIN inválido - 3 caracteres" line="83">
+<kw name="Abrir Página de Login" owner="keywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-05-17T17:05:07.061606" level="INFO">Opening browser 'chrome' to base url 'https://muda.cambiatus.io/'.</msg>
+<arg>${url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-05-17T17:05:07.061122" elapsed="5.158703"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<msg time="2025-05-17T17:05:12.338195" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=136.0.7103.114)
+Stacktrace:
+	GetHandleVerifier [0x00007FF71AA5A145+76773]
+	GetHandleVerifier [0x00007FF71AA5A1A0+76864]
+	(No symbol) [0x00007FF71A818F7A]
+	(No symbol) [0x00007FF71A7F1B31]
+	(No symbol) [0x00007FF71A89EA8E]
+	(No symbol) [0x00007FF71A8BE9C2]
+	(No symbol) [0x00007FF71A897133]
+	(No symbol) [0x00007FF71A8604D1]
+	(No symbol) [0x00007FF71A861263]
+	GetHandleVerifier [0x00007FF71AD1A8ED+2962317]
+	GetHandleVerifier [0x00007FF71AD14EC2+2939234]
+	GetHandleVerifier [0x00007FF71AD32FF3+3062419]
+	GetHandleVerifier [0x00007FF71AA74B9A+185914]
+	GetHandleVerifier [0x00007FF71AA7C78F+217647]
+	GetHandleVerifier [0x00007FF71AA62A44+111844]
+	GetHandleVerifier [0x00007FF71AA62BF2+112274]
+	GetHandleVerifier [0x00007FF71AA48A79+5401]
+	BaseThreadInitThunk [0x00007FF84F047374+20]
+	RtlUserThreadStart [0x00007FF85035CC91+33]
+</msg>
+<msg time="2025-05-17T17:05:12.369210" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=136.0.7103.114)
+Stacktrace:
+	GetHandleVerifier [0x00007FF71AA5A145+76773]
+	GetHandleVerifier [0x00007FF71AA5A1A0+76864]
+	(No symbol) [0x00007FF71A818F7A]
+	(No symbol) [0x00007FF71A7F1B31]
+	(No symbol) [0x00007FF71A89EA8E]
+	(No symbol) [0x00007FF71A8BE9C2]
+	(No symbol) [0x00007FF71A897133]
+	(No symbol) [0x00007FF71A8604D1]
+	(No symbol) [0x00007FF71A861263]
+	GetHandleVerifier [0x00007FF71AD1A8ED+2962317]
+	GetHandleVerifier [0x00007FF71AD14EC2+2939234]
+	GetHandleVerifier [0x00007FF71AD32FF3+3062419]
+	GetHandleVerifier [0x00007FF71AA74B9A+185914]
+	GetHandleVerifier [0x00007FF71AA7C78F+217647]
+	GetHandleVerifier [0x00007FF71AA62A44+111844]
+	GetHandleVerifier [0x00007FF71AA62BF2+112274]
+	GetHandleVerifier [0x00007FF71AA48A79+5401]
+	BaseThreadInitThunk [0x00007FF84F047374+20]
+	RtlUserThreadStart [0x00007FF85035CC91+33]
+</msg>
+<doc>Maximizes current browser window.</doc>
+<status status="FAIL" start="2025-05-17T17:05:12.220877" elapsed="0.152106">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=136.0.7103.114)
+Stacktrace:
+	GetHandleVerifier [0x00007FF71AA5A145+76773]
+	GetHandleVerifier [0x00007FF71AA5A1A0+76864]
+	(No symbol) [0x00007FF71A818F7A]
+	(No symbol) [0x00007FF71A7F1B31]
+	(No symbol) [0x00007FF71A89EA8E]
+	(No symbol) [0x00007FF71A8BE9C2]
+	(No symbol) [0x00007FF71A897133]
+	(No symbol) [0x00007FF71A8604D1]
+	(No symbol) [0x00007FF71A861263]
+	GetHandleVerifier [0x00007FF71AD1A8ED+2962317]
+	GetHandleVerifier [0x00007FF71AD14EC2+2939234]
+	GetHandleVerifier [0x00007FF71AD32FF3+3062419]
+	GetHandleVerifier [0x00007FF71AA74B9A+185914]
+	GetHandleVerifier [0x00007FF71AA7C78F+217647]
+	GetHandleVerifier [0x00007FF71AA62A44+111844]
+	GetHandleVerifier [0x00007FF71AA62BF2+112274]
+	GetHandleVerifier [0x00007FF71AA48A79+5401]
+	BaseThreadInitThunk [0x00007FF84F047374+20]
+	RtlUserThreadStart [0x00007FF85035CC91+33]
+</status>
+</kw>
+<arg>${URL_LOGIN}</arg>
+<status status="FAIL" start="2025-05-17T17:05:07.058624" elapsed="5.314795">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=136.0.7103.114)
+Stacktrace:
+	GetHandleVerifier [0x00007FF71AA5A145+76773]
+	GetHandleVerifier [0x00007FF71AA5A1A0+76864]
+	(No symbol) [0x00007FF71A818F7A]
+	(No symbol) [0x00007FF71A7F1B31]
+	(No symbol) [0x00007FF71A89EA8E]
+	(No symbol) [0x00007FF71A8BE9C2]
+	(No symbol) [0x00007FF71A897133]
+	(No symbol) [0x00007FF71A8604D1]
+	(No symbol) [0x00007FF71A861263]
+	GetHandleVerifier [0x00007FF71AD1A8ED+2962317]
+	GetHandleVerifier [0x00007FF71AD14EC2+2939234]
+	GetHandleVerifier [0x00007FF71AD32FF3+3062419]
+	GetHandleVerifier [0x00007FF71AA74B9A+185914]
+	GetHandleVerifier [0x00007FF71AA7C78F+217647]
+	GetHandleVerifier [0x00007FF71AA62A44+111844]
+	GetHandleVerifier [0x00007FF71AA62BF2+112274]
+	GetHandleVerifier [0x00007FF71AA48A79+5401]
+	BaseThreadInitThunk [0x00007FF84F047374+20]
+	RtlUserThreadStart [0x00007FF85035CC91+33]
+</status>
+</kw>
+<kw name="Acionar Botão" owner="keywords">
+<arg>Já sou membro</arg>
+<status status="NOT RUN" start="2025-05-17T17:05:12.377627" elapsed="0.000122"/>
+</kw>
+<kw name="Inserir Palavras Chave" owner="keywords">
+<arg>${PALAVRAS_CHAVE_TESTE}</arg>
+<status status="NOT RUN" start="2025-05-17T17:05:12.378375" elapsed="0.000111"/>
+</kw>
+<kw name="Clicar em Continuar" owner="keywords">
+<status status="NOT RUN" start="2025-05-17T17:05:12.379135" elapsed="0.000121"/>
+</kw>
+<kw name="Inserir Pin" owner="keywords">
+<arg>${PIN_INVALIDO}</arg>
+<status status="NOT RUN" start="2025-05-17T17:05:12.381229" elapsed="0.000118"/>
+</kw>
+<kw name="Confirmar Pin" owner="keywords">
+<arg>${PIN_INVALIDO}</arg>
+<status status="NOT RUN" start="2025-05-17T17:05:12.382278" elapsed="0.000139"/>
+</kw>
+<kw name="Verificar Alerta" owner="keywords">
+<arg>${ALERTA_PIN_INVALIDO}</arg>
+<status status="NOT RUN" start="2025-05-17T17:05:12.383085" elapsed="0.000114"/>
+</kw>
+<tag>critico</tag>
+<tag>funcional</tag>
+<tag>regressivo</tag>
+<status status="FAIL" start="2025-05-17T17:05:07.026164" elapsed="5.357649">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=136.0.7103.114)
+Stacktrace:
+	GetHandleVerifier [0x00007FF71AA5A145+76773]
+	GetHandleVerifier [0x00007FF71AA5A1A0+76864]
+	(No symbol) [0x00007FF71A818F7A]
+	(No symbol) [0x00007FF71A7F1B31]
+	(No symbol) [0x00007FF71A89EA8E]
+	(No symbol) [0x00007FF71A8BE9C2]
+	(No symbol) [0x00007FF71A897133]
+	(No symbol) [0x00007FF71A8604D1]
+	(No symbol) [0x00007FF71A861263]
+	GetHandleVerifier [0x00007FF71AD1A8ED+2962317]
+	GetHandleVerifier [0x00007FF71AD14EC2+2939234]
+	GetHandleVerifier [0x00007FF71AD32FF3+3062419]
+	GetHandleVerifier [0x00007FF71AA74B9A+185914]
+	GetHandleVerifier [0x00007FF71AA7C78F+217647]
+	GetHandleVerifier [0x00007FF71AA62A44+111844]
+	GetHandleVerifier [0x00007FF71AA62BF2+112274]
+	GetHandleVerifier [0x00007FF71AA48A79+5401]
+	BaseThreadInitThunk [0x00007FF84F047374+20]
+	RtlUserThreadStart [0x00007FF85035CC91+33]
+</status>
+</test>
+<doc>Testes automatizados para Login</doc>
+<status status="FAIL" start="2025-05-17T17:04:25.669507" elapsed="46.727303"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="6" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="5" skip="0">critico</stat>
+<stat pass="0" fail="6" skip="0">funcional</stat>
+<stat pass="0" fail="1" skip="0">nao-bloqueante</stat>
+<stat pass="0" fail="6" skip="0">regressivo</stat>
+<stat pass="0" fail="1" skip="0">smoke</stat>
+</tag>
+<suite>
+<stat name="Login" id="s1" pass="0" fail="6" skip="0">Login</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-05-17T17:05:06.659631" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=136.0.7103.114)
+Stacktrace:
+	GetHandleVerifier [0x00007FF71AA5A145+76773]
+	GetHandleVerifier [0x00007FF71AA5A1A0+76864]
+	(No symbol) [0x00007FF71A818F7A]
+	(No symbol) [0x00007FF71A7F1B31]
+	(No symbol) [0x00007FF71A89EA8E]
+	(No symbol) [0x00007FF71A8BE9C2]
+	(No symbol) [0x00007FF71A897133]
+	(No symbol) [0x00007FF71A8604D1]
+	(No symbol) [0x00007FF71A861263]
+	GetHandleVerifier [0x00007FF71AD1A8ED+2962317]
+	GetHandleVerifier [0x00007FF71AD14EC2+2939234]
+	GetHandleVerifier [0x00007FF71AD32FF3+3062419]
+	GetHandleVerifier [0x00007FF71AA74B9A+185914]
+	GetHandleVerifier [0x00007FF71AA7C78F+217647]
+	GetHandleVerifier [0x00007FF71AA62A44+111844]
+	GetHandleVerifier [0x00007FF71AA62BF2+112274]
+	GetHandleVerifier [0x00007FF71AA48A79+5401]
+	BaseThreadInitThunk [0x00007FF84F047374+20]
+	RtlUserThreadStart [0x00007FF85035CC91+33]
+</msg>
+<msg time="2025-05-17T17:05:12.338195" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=136.0.7103.114)
+Stacktrace:
+	GetHandleVerifier [0x00007FF71AA5A145+76773]
+	GetHandleVerifier [0x00007FF71AA5A1A0+76864]
+	(No symbol) [0x00007FF71A818F7A]
+	(No symbol) [0x00007FF71A7F1B31]
+	(No symbol) [0x00007FF71A89EA8E]
+	(No symbol) [0x00007FF71A8BE9C2]
+	(No symbol) [0x00007FF71A897133]
+	(No symbol) [0x00007FF71A8604D1]
+	(No symbol) [0x00007FF71A861263]
+	GetHandleVerifier [0x00007FF71AD1A8ED+2962317]
+	GetHandleVerifier [0x00007FF71AD14EC2+2939234]
+	GetHandleVerifier [0x00007FF71AD32FF3+3062419]
+	GetHandleVerifier [0x00007FF71AA74B9A+185914]
+	GetHandleVerifier [0x00007FF71AA7C78F+217647]
+	GetHandleVerifier [0x00007FF71AA62A44+111844]
+	GetHandleVerifier [0x00007FF71AA62BF2+112274]
+	GetHandleVerifier [0x00007FF71AA48A79+5401]
+	BaseThreadInitThunk [0x00007FF84F047374+20]
+	RtlUserThreadStart [0x00007FF85035CC91+33]
+</msg>
+</errors>
+</robot>
