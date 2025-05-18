@@ -1,0 +1,2 @@
+# Ignorar tudo no diretório "Videos redes sociais"
+Videos redes sociais/
