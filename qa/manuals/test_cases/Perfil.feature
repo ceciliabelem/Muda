@@ -1,0 +1,141 @@
+Funcionalidade: Perfil
+
+    @regressivo @funcional @critico @smoke
+    Cenário: Visualizar Perfil EM PROCESSO
+        Dado que acesso a página de login (https://muda.cambiatus.io/)
+        E aciono o botão "Já sou membro"
+        E insiro as 12 palavras chave
+        E aciono o botão "Continuar"
+        E insiro e confirmo o "Pin"
+        E sou direcionada para o painel logado
+        E aciono o botão "Minha Conta"
+        Então visualizo o perfil com os componentes: 
+            Botão "Voltar",
+            "Foto de perfil",
+            "Nome completo",
+            "Email",
+            "nome de usuário",
+            Botões 
+                "Editar perfil" 
+                E "Ver no explorador de blocos", 
+            E os dados 
+            "Localização", 
+            "Interesses", 
+            "Opções de contato seguidos de botão "Editar", 
+            "Saldo Total",
+            "Número de transferências", 
+            "Número de reivindicações",
+            "Itens na loja",
+            "Membro desde",
+            "Última transação (data)"
+            E "Últimas transferências"
+
+    @regressivo @funcional @critico
+    Cenário: Editar Perfil com cados válidos
+        Dado que acesso a página de "perfil"
+        E aciono o botão "Editar perfil"
+        E insiro um novo "Nome completo"
+        E insiro um novo "e-mail"
+        E preencho a "biografia"
+        E insiro uma nova "localização"
+        E seleciono os "interesses"
+        E aciono o botão "Salvar"
+        Então visualizo a mensagem "Perfil salvo com sucesso"
+    
+    @regressivo @funcional @critico
+    Cenário: Editar Perfil com dados inválidos - Trello #1
+        Dado que acesso a página de "perfil"
+        E aciono o botão "Editar perfil"
+        E insiro um novo "Nome completo"
+        E insiro um novo "e-mail" inválido
+        E preencho a "biografia"
+        E insiro uma nova "localização"
+        E seleciono os "interesses"
+        E aciono o botão "Salvar"
+        Então visualizo a mensagem "Perfil salvo com sucesso"
+
+    @regressivo @funcional @critico
+    Cenário: Ver no explorador de blocos
+        Dado que acesso a página de "perfil"
+        E aciono o botão "Ver no explorador de blocos"
+        Então sou direcionada para a página do explorador de blocos
+
+    @regressivo @funcional @critico
+    Cenário: Editar Opções	de contato
+        Dado que acesso a página de "perfil"
+        E aciono o botão "Editar perfil"
+        E aciono o botão "Editar" em "Opções de contato"
+        E insiro um novo "e-mail"
+        E insiro uma conta de "Instagram"
+        E insiro um "link" para site
+        E insiro um novo "telefone"
+        E insiro um novo "nome de usuário" para "telegram"
+        E insiro um contato para "whatsapp"
+        E aciono o botão "Salvar"
+        Então sou direcionada para a tela inicial de perfil
+        E visualizo a mensagem "Seus contatos foram salvos com sucesso"
+
+    @regressivo @funcional @critico
+    Cenário: Editar Opções	de contato com dados inválidos - Trello #2
+        Dado que acesso a página de "perfil"
+        E aciono o botão "Editar contato"
+        E aciono o botão "Editar" em "Opções de contato"
+        E insiro um novo "e-mail" inválido
+        E insiro uma conta de "Instagram"
+        E insiro um "link" inválido para site - massa: "lorem"
+        E insiro um novo "telefone" inválido
+        E insiro um novo "nome de usuário" para "telegram" inválido
+        E insiro um contato para "whatsapp" inválido
+        E aciono o botão "Salvar"
+        Então sou direcionada para a tela inicial de perfil
+        E visualizo a mensagem "Seus contatos foram salvos com sucesso"
+
+    @regressivo @funcional @critico
+    Cenário: Deletar dado de contato cadastrado
+        Dado que acesso a página de "perfil"
+        E aciono o botão "Editar" em "Opções de contato"
+        E aciono o botão "Excluir" em um dos contatos cadastrados
+        E visualizo a modal "Excluir" 
+            Com botão "Fechar" 
+            O texto "Quer mesmo excluir sua informação de contato?"
+            Botão "Não"
+            Botão "Sim"
+        E aciono o botão "Sim"
+        Então visualizo a mensagem "Seu contato foi removido com sucesso"
+        E a caixa de edição fica vazia
+
+
+    @regressivo @funcional @critico
+    Cenário: Alterar foto do perfil
+        Dado que acesso a página de "perfil"
+        E aciono o botão "Editar perfil"
+        Quando aciono o botão "Alterar foto do perfil"
+        E abre a modal "Editar imagem"
+        E visualizo:
+            | Título: "Editar imagem" |
+            | Botão "Fechar" |
+            | Imagem de perfil carregada |
+            | Botão " Menos zoom" |
+            | Botão "Mais zoom" |
+            | Botão "Excluir" |
+            | Botão "Substituir" |
+            | Botão "Salvar" |
+        E aciono o botão "Substituir"
+        E seleciono uma imagem válida
+        E ajusto o zoom da imagem
+        E aciono o botão "Salvar"
+        E aciono o botão "Salvar" novamente
+        Então sou direcionada para a tela inicial de perfil
+        Então visualizo a mensagem "Perfil salvo com sucesso"
+        E a imagem é atualizada na tela inicial de perfil
+
+    @regressivo @funcional @critico
+    Cenário: Excluir foto do perfil
+        Dado que acesso a página de "perfil"
+        E aciono o botão "Editar perfil"
+        E aciono o botão "Alterar foto do perfil"
+        E abre a modal "Editar imagem"
+        E aciono o botão "Excluir"
+        
+        Então sou direcionada para a tela de "Editar perfil"
+        E a imagem é apagada, sendo exibido um ícone com desenho de câmera fotográfica
