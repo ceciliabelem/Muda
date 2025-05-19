@@ -155,37 +155,37 @@ Suite Teardown    Fechar Navegador
 *** Test Cases ***
 Login com sucesso
     [Tags]    positivo    login
-    Preencher Palavras Chave Corretas
-    Clicar Botao Avancar
+    Colar Palavras Chave Corretas
     Preencher PIN Correto
     Clicar Botao Entrar
     Validar Login Efetuado Com Sucesso
 
 Login com palavras-chave inválidas
     [Tags]    negativo    login
-    Preencher Palavras Chave Invalidas
+    Colar Palavras Chave Invalidas
     Clicar Botao Avancar
     Validar Erro Palavras Chave
     Capture Screenshot On Failure
 
 Login com menos de 12 palavras
     [Tags]    negativo    login
-    Preencher Menos De 12 Palavras
+    Copiar Palavras Chave Para Area De Transferencia    ${PALAVRAS_CHAVE_11}
+    Colar Palavras Chave
     Clicar Botao Avancar
     Validar Erro Palavras Chave
     Capture Screenshot On Failure
 
 Login sem palavras-chave
     [Tags]    negativo    login
-    Nao Preencher Palavras Chave
+    Copiar Palavras Chave Para Area De Transferencia    
+    Colar Palavras Chave
     Clicar Botao Avancar
     Validar Erro Palavras Chave
     Capture Screenshot On Failure
 
 Login com PIN inválido
     [Tags]    negativo    login
-    Preencher Palavras Chave Corretas
-    Clicar Botao Avancar
+    Colar Palavras Chave Corretas
     Preencher PIN Invalido
     Clicar Botao Entrar
     Validar Erro PIN
@@ -193,8 +193,7 @@ Login com PIN inválido
 
 Login com PIN divergente
     [Tags]    negativo    login
-    Preencher Palavras Chave Corretas
-    Clicar Botao Avancar
+    Colar Palavras Chave Corretas
     Preencher PIN Divergente
     Clicar Botao Entrar
     Validar Erro PIN Divergente
@@ -202,8 +201,7 @@ Login com PIN divergente
 
 Visualizar PIN
     [Tags]    visual    login
-    Preencher Palavras Chave Corretas
-    Clicar Botao Avancar
+    Colar Palavras Chave Corretas
     Visualizar PIN
     Validar PIN Visivel
 >>>>>>> ab683e9 (atualizando testes)

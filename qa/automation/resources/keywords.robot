@@ -3,11 +3,17 @@ Library    SeleniumLibrary
 
 Suite Teardown    Fechar Navegador
 
+*** Variables ***
+${URL_LOGIN}    https://muda.cambiatus.io/login
+
 *** Keywords ***
 Abrir Página de Login
     [Arguments]    ${url}
     Open Browser    ${url}    chrome
     Maximize Browser Window
+
+Abrir Navegador E Acessar Login
+    Abrir Página de Login    ${URL_LOGIN}
 
 Acionar Botão
     [Arguments]    ${nome_botao}
@@ -87,9 +93,16 @@ Acionar Botão Paste
     Wait Until Element Is Visible    css=button.button-secondary
     Click Element    css=button.button-secondary
 
-Colar Palavras Passe No Textarea
-    Click Element    css=textarea.input.peer
-    Press Keys    css=textarea.input.peer    CTRL+v
+Colar Palavras Chave
+    Wait Until Element Is Visible    css=button.button-secondary
+    Click Element    css=button.button-secondary
+    Sleep    0.5s
+    Clicar Botao Avancar
+
+Clicar Botao Avancar
+    Wait Until Element Is Visible    css=button.button.button-primary.min-w-full
+    Click Element    css=button.button.button-primary.min-w-full
+    Sleep    0.5s
 
 Varre Erros Visiveis
     # Varre e loga todos os erros visíveis na tela
@@ -111,5 +124,16 @@ Acionar Botao Entrar PIN
     Wait Until Element Is Visible    css=button.button.button-primary.min-w-full.mt-auto    timeout=10s
     Click Element    css=button.button.button-primary.min-w-full.mt-auto
     Sleep    0.5s
+
+Preencher Palavras Chave Corretas
+    Inserir Palavras Chave    ${PALAVRAS_CHAVE_TESTE}
+
+Colar Palavras Chave Corretas
+    Copiar Palavras Chave Para Area De Transferencia    ${PALAVRAS_CHAVE_TESTE}
+    Colar Palavras Chave
+
+Colar Palavras Chave Invalidas
+    Copiar Palavras Chave Para Area De Transferencia    ${PALAVRAS_CHAVE_INVALIDAS}
+    Colar Palavras Chave
 
 # Adapte os seletores conforme o HTML real do sistema
