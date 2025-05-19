@@ -1,4 +1,5 @@
 *** Settings ***
+<<<<<<< HEAD
 Documentation     Testes automatizados para Login
 Suite Setup       # (Opcional) Setup comum
 Suite Teardown    Fechar Navegador
@@ -145,3 +146,64 @@ Tentativa de login com PIN divergente
         Log    ${texto}
     END
     Verificar Componente Erro Presente
+=======
+Resource    resources/keywords.robot
+Resource    resources/massas.robot
+Suite Setup    Abrir Navegador E Acessar Login
+Suite Teardown    Fechar Navegador
+
+*** Test Cases ***
+Login com sucesso
+    [Tags]    positivo    login
+    Preencher Palavras Chave Corretas
+    Clicar Botao Avancar
+    Preencher PIN Correto
+    Clicar Botao Entrar
+    Validar Login Efetuado Com Sucesso
+
+Login com palavras-chave inválidas
+    [Tags]    negativo    login
+    Preencher Palavras Chave Invalidas
+    Clicar Botao Avancar
+    Validar Erro Palavras Chave
+    Capture Screenshot On Failure
+
+Login com menos de 12 palavras
+    [Tags]    negativo    login
+    Preencher Menos De 12 Palavras
+    Clicar Botao Avancar
+    Validar Erro Palavras Chave
+    Capture Screenshot On Failure
+
+Login sem palavras-chave
+    [Tags]    negativo    login
+    Nao Preencher Palavras Chave
+    Clicar Botao Avancar
+    Validar Erro Palavras Chave
+    Capture Screenshot On Failure
+
+Login com PIN inválido
+    [Tags]    negativo    login
+    Preencher Palavras Chave Corretas
+    Clicar Botao Avancar
+    Preencher PIN Invalido
+    Clicar Botao Entrar
+    Validar Erro PIN
+    Capture Screenshot On Failure
+
+Login com PIN divergente
+    [Tags]    negativo    login
+    Preencher Palavras Chave Corretas
+    Clicar Botao Avancar
+    Preencher PIN Divergente
+    Clicar Botao Entrar
+    Validar Erro PIN Divergente
+    Capture Screenshot On Failure
+
+Visualizar PIN
+    [Tags]    visual    login
+    Preencher Palavras Chave Corretas
+    Clicar Botao Avancar
+    Visualizar PIN
+    Validar PIN Visivel
+>>>>>>> ab683e9 (atualizando testes)
