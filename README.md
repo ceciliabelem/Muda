@@ -1,3 +1,6 @@
+# Muda
+This repository is for storing accessibility and functional activities at Muda
+
 # Muda Frontend
 
 Este repositório contém o código-fonte do frontend do projeto Muda. Ele é responsável pela interface do usuário e pela interação com os serviços backend.
