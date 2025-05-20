@@ -1,321 +1,1457 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.13.3 on win32)" generated="2025-05-19T09:58:49.358423" rpa="false" schemaversion="5">
+<robot generator="Robot 7.2.2 (Python 3.13.3 on win32)" generated="2025-05-19T21:15:08.734205" rpa="false" schemaversion="5">
 <suite id="s1" name="Login" source="C:\Users\Ivan\Documents\Trabalho_estudo\Muda-frontend\qa\automation\login.robot">
-<kw name="Abrir Navegador E Acessar Login" owner="keywords" type="SETUP">
+<test id="s1-t1" name="Login com sucesso" line="13">
 <kw name="Abrir Página de Login" owner="keywords">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-05-19T09:58:50.868464" level="INFO">Opening browser 'chrome' to base url 'https://muda.cambiatus.io/login'.</msg>
+<msg time="2025-05-19T21:15:09.340064" level="INFO">Opening browser 'chrome' to base url 'https://muda.cambiatus.io/'.</msg>
 <arg>${url}</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-05-19T09:58:50.868065" elapsed="10.253281"/>
+<status status="PASS" start="2025-05-19T21:15:09.339597" elapsed="2.585063"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-05-19T09:59:01.122207" elapsed="0.066315"/>
+<status status="PASS" start="2025-05-19T21:15:11.925109" elapsed="3.337242"/>
 </kw>
 <arg>${URL_LOGIN}</arg>
-<status status="PASS" start="2025-05-19T09:58:50.866975" elapsed="10.321785"/>
+<status status="PASS" start="2025-05-19T21:15:09.338359" elapsed="5.924316"/>
 </kw>
-<status status="PASS" start="2025-05-19T09:58:50.866473" elapsed="10.322442"/>
+<kw name="Acionar Botão" owner="keywords">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:15:15.267127" level="INFO">Clicking element 'xpath=//a[contains(@class, 'button-primary') and contains(text(), 'Já sou membro')]'.</msg>
+<arg>xpath=//a[contains(@class, 'button-primary') and contains(text(), 'Já sou membro')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-19T21:15:15.266254" elapsed="0.159856"/>
 </kw>
-<test id="s1-t1" name="Login com sucesso" line="8">
-<kw name="Preencher Palavras Chave Corretas" owner="keywords">
+<arg>'${nome_botao}' == 'Já sou membro'</arg>
+<arg>Click Element</arg>
+<arg>xpath=//a[contains(@class, 'button-primary') and contains(text(), 'Já sou membro')]</arg>
+<arg>ELSE IF</arg>
+<arg>'${nome_botao}' == 'Continuar'</arg>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Click Element</arg>
+<arg>css=button.button.button-primary.min-w-full</arg>
+<arg>ELSE IF</arg>
+<arg>'${nome_botao}' == 'Continuar'</arg>
+<arg>Click Element</arg>
+<arg>xpath=//button[contains(., 'Continuar') or contains(., 'Continue')]</arg>
+<arg>ELSE</arg>
+<arg>Click Element</arg>
+<arg>xpath=//*[self::button or self::a][contains(text(), '${nome_botao}')]</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-05-19T21:15:15.264931" elapsed="0.161411"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-05-19T21:15:15.927467" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-05-19T21:15:15.426684" elapsed="0.501061"/>
+</kw>
+<kw name="Varre Erros Visiveis" owner="keywords">
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:15:15.948075" level="INFO">${erros} = []</msg>
+<var>${erros}</var>
+<arg>css=.form-error, .form-error.form-error-on-dark-bg</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-05-19T21:15:15.929366" elapsed="0.018778"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${erro}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-05-19T21:15:15.948880" elapsed="0.000090"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>[ERRO VISÍVEL] ${texto}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-05-19T21:15:15.949257" elapsed="0.000080"/>
+</kw>
+<var name="${erro}"/>
+<status status="NOT RUN" start="2025-05-19T21:15:15.948586" elapsed="0.000865"/>
+</iter>
+<var>${erro}</var>
+<value>@{erros}</value>
+<status status="NOT RUN" start="2025-05-19T21:15:15.948293" elapsed="0.001371"/>
+</for>
+<status status="PASS" start="2025-05-19T21:15:15.928430" elapsed="0.021480"/>
+</kw>
+<arg>Já sou membro</arg>
+<status status="PASS" start="2025-05-19T21:15:15.264036" elapsed="0.686021"/>
+</kw>
 <kw name="Inserir Palavras Chave" owner="keywords">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>css=textarea.input.peer</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-05-19T09:59:01.191628" elapsed="0.190555"/>
+<status status="PASS" start="2025-05-19T21:15:15.951533" elapsed="0.034573"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-05-19T09:59:01.383197" level="INFO">Typing text 'sombrinha estilete ramalhete arvore salsinha flores verao abacaxi girassol margarida violeta tulipa' into text field 'css=textarea.input.peer'.</msg>
+<msg time="2025-05-19T21:15:15.986848" level="INFO">Typing text 'garment neither noise flash enable humble embrace typical annual fruit cycle degree' into text field 'css=textarea.input.peer'.</msg>
 <arg>css=textarea.input.peer</arg>
 <arg>${palavras}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-05-19T09:59:01.382574" elapsed="0.574572"/>
+<status status="PASS" start="2025-05-19T21:15:15.986424" elapsed="0.452533"/>
 </kw>
 <arg>${PALAVRAS_CHAVE_TESTE}</arg>
-<status status="PASS" start="2025-05-19T09:59:01.190828" elapsed="0.766661"/>
+<status status="PASS" start="2025-05-19T21:15:15.950679" elapsed="0.488529"/>
 </kw>
-<status status="PASS" start="2025-05-19T09:59:01.190263" elapsed="0.767471"/>
-</kw>
-<kw name="Clicar Botao Avancar" owner="keywords">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>css=button.button.button-primary.min-w-full</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-05-19T09:59:01.959495" elapsed="0.098025"/>
-</kw>
+<kw name="Acionar Botao Continuar Palavras" owner="keywords">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-05-19T09:59:02.058581" level="INFO">Clicking element 'css=button.button.button-primary.min-w-full'.</msg>
+<msg time="2025-05-19T21:15:16.440623" level="INFO">Clicking element 'css=button.button.button-primary.min-w-full'.</msg>
 <arg>css=button.button.button-primary.min-w-full</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-05-19T09:59:02.057933" elapsed="0.151747"/>
+<status status="PASS" start="2025-05-19T21:15:16.440365" elapsed="0.137673"/>
+</kw>
+<status status="PASS" start="2025-05-19T21:15:16.439880" elapsed="0.138425"/>
+</kw>
+<kw name="Inserir e Confirmar Pin" owner="keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:15:16.579912" level="INFO">Typing text '147258' into text field 'css=#pin-input'.</msg>
+<arg>css=#pin-input</arg>
+<arg>${pin}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-19T21:15:16.579490" elapsed="0.112765"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:15:16.692953" level="INFO">Typing text '147258' into text field 'css=#pin-confirmation-input'.</msg>
+<arg>css=#pin-confirmation-input</arg>
+<arg>${pin}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-19T21:15:16.692500" elapsed="0.159803"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:15:16.853056" level="INFO">Clicking element 'css=.button.button-primary.min-w-full.mt-auto'.</msg>
+<arg>css=.button.button-primary.min-w-full.mt-auto</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-19T21:15:16.852676" elapsed="0.101938"/>
+</kw>
+<arg>${PIN_TESTE}</arg>
+<status status="PASS" start="2025-05-19T21:15:16.578883" elapsed="0.375988"/>
+</kw>
+<kw name="Verificar Redirecionamento Painel Logado" owner="keywords">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Location Should Be" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:15:17.403565" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-05-19T21:15:17.403935" level="FAIL">Location should have been 'https://muda.cambiatus.io/dashboard' but was 'https://muda.cambiatus.io/login?redirect=%2Fdashboard'.</msg>
+<arg>https://muda.cambiatus.io/dashboard</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<status status="FAIL" start="2025-05-19T21:15:16.957264" elapsed="0.452648">Location should have been 'https://muda.cambiatus.io/dashboard' but was 'https://muda.cambiatus.io/login?redirect=%2Fdashboard'.</status>
+</kw>
+<msg time="2025-05-19T21:15:17.410427" level="INFO">${ok} = False</msg>
+<var>${ok}</var>
+<arg>Location Should Be</arg>
+<arg>https://muda.cambiatus.io/dashboard</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-05-19T21:15:16.956772" elapsed="0.453790"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${ok}</arg>
+<arg>Return From Keyword</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-05-19T21:15:17.411131" elapsed="0.000412"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Location Should Be" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:15:17.423359" level="INFO">Current location is 'https://muda.cambiatus.io/login?redirect=%2Fdashboard'.</msg>
+<arg>https://muda.cambiatus.io/login?redirect=%2Fdashboard</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<status status="PASS" start="2025-05-19T21:15:17.412690" elapsed="0.010946"/>
+</kw>
+<msg time="2025-05-19T21:15:17.424065" level="INFO">${ok} = True</msg>
+<var>${ok}</var>
+<arg>Location Should Be</arg>
+<arg>https://muda.cambiatus.io/login?redirect=%2Fdashboard</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-05-19T21:15:17.412228" elapsed="0.011968"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Return From Keyword" owner="BuiltIn">
+<msg time="2025-05-19T21:15:17.425895" level="INFO">Returning from the enclosing user keyword.</msg>
+<doc>Returns from the enclosing user keyword.</doc>
+<status status="PASS" start="2025-05-19T21:15:17.425513" elapsed="0.000666"/>
+</kw>
+<arg>${ok}</arg>
+<arg>Return From Keyword</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-05-19T21:15:17.424736" elapsed="0.001697"/>
+</kw>
+<kw name="Fail" owner="BuiltIn">
+<arg>Não foi possível validar o redirecionamento para o painel logado.</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2025-05-19T21:15:17.426880" elapsed="0.000124"/>
+</kw>
+<status status="PASS" start="2025-05-19T21:15:16.956101" elapsed="0.471211"/>
+</kw>
+<tag>critico</tag>
+<tag>funcional</tag>
+<tag>regressivo</tag>
+<tag>smoke</tag>
+<status status="PASS" start="2025-05-19T21:15:09.336728" elapsed="8.091834"/>
+</test>
+<test id="s1-t2" name="Login com palavras chave inválidas" line="28">
+<kw name="Abrir Página de Login" owner="keywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:15:17.434072" level="INFO">Opening browser 'chrome' to base url 'https://muda.cambiatus.io/'.</msg>
+<arg>${url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-05-19T21:15:17.433620" elapsed="5.939423"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-05-19T21:15:23.374336" elapsed="0.079339"/>
+</kw>
+<arg>${URL_LOGIN}</arg>
+<status status="PASS" start="2025-05-19T21:15:17.432820" elapsed="6.021105"/>
+</kw>
+<kw name="Acionar Botão" owner="keywords">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:15:23.456894" level="INFO">Clicking element 'xpath=//a[contains(@class, 'button-primary') and contains(text(), 'Já sou membro')]'.</msg>
+<arg>xpath=//a[contains(@class, 'button-primary') and contains(text(), 'Já sou membro')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-19T21:15:23.456456" elapsed="0.369314"/>
+</kw>
+<arg>'${nome_botao}' == 'Já sou membro'</arg>
+<arg>Click Element</arg>
+<arg>xpath=//a[contains(@class, 'button-primary') and contains(text(), 'Já sou membro')]</arg>
+<arg>ELSE IF</arg>
+<arg>'${nome_botao}' == 'Continuar'</arg>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Click Element</arg>
+<arg>css=button.button.button-primary.min-w-full</arg>
+<arg>ELSE IF</arg>
+<arg>'${nome_botao}' == 'Continuar'</arg>
+<arg>Click Element</arg>
+<arg>xpath=//button[contains(., 'Continuar') or contains(., 'Continue')]</arg>
+<arg>ELSE</arg>
+<arg>Click Element</arg>
+<arg>xpath=//*[self::button or self::a][contains(text(), '${nome_botao}')]</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-05-19T21:15:23.455648" elapsed="0.370371"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2025-05-19T09:59:02.711004" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-05-19T21:15:24.327449" level="INFO">Slept 500 milliseconds.</msg>
 <arg>0.5s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-05-19T09:59:02.210246" elapsed="0.501290"/>
+<status status="PASS" start="2025-05-19T21:15:23.826496" elapsed="0.501179"/>
 </kw>
-<status status="PASS" start="2025-05-19T09:59:01.958650" elapsed="0.753476"/>
+<kw name="Varre Erros Visiveis" owner="keywords">
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:15:24.347278" level="INFO">${erros} = []</msg>
+<var>${erros}</var>
+<arg>css=.form-error, .form-error.form-error-on-dark-bg</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-05-19T21:15:24.328899" elapsed="0.018457"/>
 </kw>
-<kw name="Preencher PIN Correto">
-<msg time="2025-05-19T09:59:02.720844" level="FAIL">No keyword with name 'Preencher PIN Correto' found.</msg>
-<status status="FAIL" start="2025-05-19T09:59:02.720478" elapsed="0.000706">No keyword with name 'Preencher PIN Correto' found.</status>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${erro}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-05-19T21:15:24.348014" elapsed="0.000060"/>
 </kw>
-<kw name="Clicar Botao Entrar">
-<status status="NOT RUN" start="2025-05-19T09:59:02.722808" elapsed="0.000261"/>
+<kw name="Log" owner="BuiltIn">
+<arg>[ERRO VISÍVEL] ${texto}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-05-19T21:15:24.348270" elapsed="0.000054"/>
 </kw>
-<kw name="Validar Login Efetuado Com Sucesso">
-<status status="NOT RUN" start="2025-05-19T09:59:02.724318" elapsed="0.000470"/>
+<var name="${erro}"/>
+<status status="NOT RUN" start="2025-05-19T21:15:24.347819" elapsed="0.000582"/>
+</iter>
+<var>${erro}</var>
+<value>@{erros}</value>
+<status status="NOT RUN" start="2025-05-19T21:15:24.347514" elapsed="0.001038"/>
+</for>
+<status status="PASS" start="2025-05-19T21:15:24.328284" elapsed="0.020450"/>
 </kw>
-<tag>login</tag>
-<tag>positivo</tag>
-<status status="FAIL" start="2025-05-19T09:59:01.189070" elapsed="1.537262">No keyword with name 'Preencher PIN Correto' found.</status>
-</test>
-<test id="s1-t2" name="Login com palavras-chave inválidas" line="16">
-<kw name="Preencher Palavras Chave Invalidas">
-<msg time="2025-05-19T09:59:02.752120" level="FAIL">No keyword with name 'Preencher Palavras Chave Invalidas' found.</msg>
-<status status="FAIL" start="2025-05-19T09:59:02.751755" elapsed="0.000702">No keyword with name 'Preencher Palavras Chave Invalidas' found.</status>
+<arg>Já sou membro</arg>
+<status status="PASS" start="2025-05-19T21:15:23.454891" elapsed="0.893949"/>
 </kw>
-<kw name="Clicar Botao Avancar" owner="keywords">
-<status status="NOT RUN" start="2025-05-19T09:59:02.754486" elapsed="0.000268"/>
-</kw>
-<kw name="Validar Erro Palavras Chave">
-<status status="NOT RUN" start="2025-05-19T09:59:02.755819" elapsed="0.000159"/>
-</kw>
-<kw name="Capture Screenshot On Failure">
-<status status="NOT RUN" start="2025-05-19T09:59:02.756791" elapsed="0.000140"/>
-</kw>
-<tag>login</tag>
-<tag>negativo</tag>
-<status status="FAIL" start="2025-05-19T09:59:02.734995" elapsed="0.022808">No keyword with name 'Preencher Palavras Chave Invalidas' found.</status>
-</test>
-<test id="s1-t3" name="Login com menos de 12 palavras" line="23">
-<kw name="Preencher Menos De 12 Palavras">
-<msg time="2025-05-19T09:59:02.855934" level="FAIL">No keyword with name 'Preencher Menos De 12 Palavras' found.</msg>
-<status status="FAIL" start="2025-05-19T09:59:02.855644" elapsed="0.000564">No keyword with name 'Preencher Menos De 12 Palavras' found.</status>
-</kw>
-<kw name="Clicar Botao Avancar" owner="keywords">
-<status status="NOT RUN" start="2025-05-19T09:59:02.865120" elapsed="0.000313"/>
-</kw>
-<kw name="Validar Erro Palavras Chave">
-<status status="NOT RUN" start="2025-05-19T09:59:02.866613" elapsed="0.000165"/>
-</kw>
-<kw name="Capture Screenshot On Failure">
-<status status="NOT RUN" start="2025-05-19T09:59:02.867571" elapsed="0.000141"/>
-</kw>
-<tag>login</tag>
-<tag>negativo</tag>
-<status status="FAIL" start="2025-05-19T09:59:02.786180" elapsed="0.082279">No keyword with name 'Preencher Menos De 12 Palavras' found.</status>
-</test>
-<test id="s1-t4" name="Login sem palavras-chave" line="30">
-<kw name="Nao Preencher Palavras Chave">
-<msg time="2025-05-19T09:59:02.883578" level="FAIL">No keyword with name 'Nao Preencher Palavras Chave' found.</msg>
-<status status="FAIL" start="2025-05-19T09:59:02.883409" elapsed="0.000322">No keyword with name 'Nao Preencher Palavras Chave' found.</status>
-</kw>
-<kw name="Clicar Botao Avancar" owner="keywords">
-<status status="NOT RUN" start="2025-05-19T09:59:02.884607" elapsed="0.000139"/>
-</kw>
-<kw name="Validar Erro Palavras Chave">
-<status status="NOT RUN" start="2025-05-19T09:59:02.885356" elapsed="0.000108"/>
-</kw>
-<kw name="Capture Screenshot On Failure">
-<status status="NOT RUN" start="2025-05-19T09:59:02.886077" elapsed="0.000099"/>
-</kw>
-<tag>login</tag>
-<tag>negativo</tag>
-<status status="FAIL" start="2025-05-19T09:59:02.871944" elapsed="0.014821">No keyword with name 'Nao Preencher Palavras Chave' found.</status>
-</test>
-<test id="s1-t5" name="Login com PIN inválido" line="37">
-<kw name="Preencher Palavras Chave Corretas" owner="keywords">
 <kw name="Inserir Palavras Chave" owner="keywords">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>css=textarea.input.peer</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-05-19T09:59:02.899064" elapsed="0.029899"/>
+<status status="PASS" start="2025-05-19T21:15:24.350181" elapsed="0.060668"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-05-19T09:59:02.929782" level="INFO">Typing text 'sombrinha estilete ramalhete arvore salsinha flores verao abacaxi girassol margarida violeta tulipa' into text field 'css=textarea.input.peer'.</msg>
+<msg time="2025-05-19T21:15:24.411680" level="INFO">Typing text 'sombrinha estilete ramalhete arvore salsinha flores verao abacaxi banana cadeira mesa lampada' into text field 'css=textarea.input.peer'.</msg>
 <arg>css=textarea.input.peer</arg>
 <arg>${palavras}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-05-19T09:59:02.929238" elapsed="0.673555"/>
+<status status="PASS" start="2025-05-19T21:15:24.411196" elapsed="0.638457"/>
 </kw>
-<arg>${PALAVRAS_CHAVE_TESTE}</arg>
-<status status="PASS" start="2025-05-19T09:59:02.898209" elapsed="0.704780"/>
+<arg>${PALAVRAS_CHAVE_INVALIDAS}</arg>
+<status status="PASS" start="2025-05-19T21:15:24.349393" elapsed="0.700547"/>
 </kw>
-<status status="PASS" start="2025-05-19T09:59:02.897342" elapsed="0.705772"/>
-</kw>
-<kw name="Clicar Botao Avancar" owner="keywords">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>css=button.button.button-primary.min-w-full</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-05-19T09:59:03.604824" elapsed="0.052268"/>
-</kw>
+<kw name="Acionar Botao Continuar Palavras" owner="keywords">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-05-19T09:59:03.658754" level="INFO">Clicking element 'css=button.button.button-primary.min-w-full'.</msg>
+<msg time="2025-05-19T21:15:25.065644" level="INFO">Clicking element 'css=button.button.button-primary.min-w-full'.</msg>
 <arg>css=button.button.button-primary.min-w-full</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-05-19T09:59:03.657953" elapsed="0.150647"/>
+<status status="PASS" start="2025-05-19T21:15:25.065277" elapsed="0.225285"/>
+</kw>
+<status status="PASS" start="2025-05-19T21:15:25.064692" elapsed="0.226120"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:15:25.515946" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-05-19T21:15:25.292841" elapsed="0.223354"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-19T21:15:25.526086" level="INFO">Mensagens de erro na tela:</msg>
+<arg>Mensagens de erro na tela:</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-19T21:15:25.525756" elapsed="0.000489"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:15:25.550244" level="INFO">${erros} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="61ca69ed6d0300ea47f1ead7b2a16ff6", element="f.0EC6C8472DC7FF607EDF25F8451885D3.d.B399D1E807B9AB0F6341E0223E3D7EED.e.28")&gt;]</msg>
+<var>${erros}</var>
+<arg>css=.form-error, .form-error.form-error-on-dark-bg</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-05-19T21:15:25.530408" elapsed="0.020129"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:15:25.582897" level="INFO">${texto} = ESSAS PALAVRAS NÃO SÃO VÁLIDAS: SOMBRINHA, ESTILETE, RAMALHETE, ARVORE, SALSINHA, FLORES, VERAO, ABACAXI, CADEIRA, MESA, LAMPADA. VERIFIQUE SUAS 12 PALAVRAS E TENTE NOVAMENTE</msg>
+<var>${texto}</var>
+<arg>${erro}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-19T21:15:25.552556" elapsed="0.030470"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-19T21:15:25.583920" level="INFO">ESSAS PALAVRAS NÃO SÃO VÁLIDAS: SOMBRINHA, ESTILETE, RAMALHETE, ARVORE, SALSINHA, FLORES, VERAO, ABACAXI, CADEIRA, MESA, LAMPADA. VERIFIQUE SUAS 12 PALAVRAS E TENTE NOVAMENTE</msg>
+<arg>${texto}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-19T21:15:25.583480" elapsed="0.000620"/>
+</kw>
+<var name="${erro}">&lt;selenium.webdriver.remote.webelement.WebElement (session="61ca69ed6d0300ea47f1ead7b2a16ff6", element="f.0EC6C8472DC7FF607EDF25F8451885D3.d.B399D1E807B9AB0F6341E0223E3D7EED.e.28")&gt;</var>
+<status status="PASS" start="2025-05-19T21:15:25.552284" elapsed="0.031975"/>
+</iter>
+<var>${erro}</var>
+<value>@{erros}</value>
+<status status="PASS" start="2025-05-19T21:15:25.551867" elapsed="0.032593"/>
+</for>
+<kw name="Verificar Componente Erro Presente" owner="keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=.form-error, .form-error.form-error-on-dark-bg</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-05-19T21:15:25.590400" elapsed="0.030198"/>
+</kw>
+<status status="PASS" start="2025-05-19T21:15:25.588235" elapsed="0.032637"/>
+</kw>
+<tag>critico</tag>
+<tag>funcional</tag>
+<tag>regressivo</tag>
+<status status="PASS" start="2025-05-19T21:15:17.431421" elapsed="8.195072"/>
+</test>
+<test id="s1-t3" name="Login com menos de 12 palavras-chave" line="43">
+<kw name="Abrir Página de Login" owner="keywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:15:25.638622" level="INFO">Opening browser 'chrome' to base url 'https://muda.cambiatus.io/'.</msg>
+<arg>${url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-05-19T21:15:25.638091" elapsed="5.977717"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-05-19T21:15:31.616508" elapsed="0.061855"/>
+</kw>
+<arg>${URL_LOGIN}</arg>
+<status status="PASS" start="2025-05-19T21:15:25.637097" elapsed="6.041710"/>
+</kw>
+<kw name="Acionar Botão" owner="keywords">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:15:31.685100" level="INFO">Clicking element 'xpath=//a[contains(@class, 'button-primary') and contains(text(), 'Já sou membro')]'.</msg>
+<arg>xpath=//a[contains(@class, 'button-primary') and contains(text(), 'Já sou membro')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-19T21:15:31.684762" elapsed="0.276407"/>
+</kw>
+<arg>'${nome_botao}' == 'Já sou membro'</arg>
+<arg>Click Element</arg>
+<arg>xpath=//a[contains(@class, 'button-primary') and contains(text(), 'Já sou membro')]</arg>
+<arg>ELSE IF</arg>
+<arg>'${nome_botao}' == 'Continuar'</arg>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Click Element</arg>
+<arg>css=button.button.button-primary.min-w-full</arg>
+<arg>ELSE IF</arg>
+<arg>'${nome_botao}' == 'Continuar'</arg>
+<arg>Click Element</arg>
+<arg>xpath=//button[contains(., 'Continuar') or contains(., 'Continue')]</arg>
+<arg>ELSE</arg>
+<arg>Click Element</arg>
+<arg>xpath=//*[self::button or self::a][contains(text(), '${nome_botao}')]</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-05-19T21:15:31.683980" elapsed="0.277404"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2025-05-19T09:59:04.312141" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-05-19T21:15:32.462524" level="INFO">Slept 500 milliseconds.</msg>
 <arg>0.5s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-05-19T09:59:03.809120" elapsed="0.503350"/>
+<status status="PASS" start="2025-05-19T21:15:31.961773" elapsed="0.500954"/>
 </kw>
-<status status="PASS" start="2025-05-19T09:59:03.603815" elapsed="0.709055"/>
+<kw name="Varre Erros Visiveis" owner="keywords">
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:15:32.484285" level="INFO">${erros} = []</msg>
+<var>${erros}</var>
+<arg>css=.form-error, .form-error.form-error-on-dark-bg</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-05-19T21:15:32.463965" elapsed="0.020448"/>
 </kw>
-<kw name="Preencher PIN Invalido">
-<msg time="2025-05-19T09:59:04.321156" level="FAIL">No keyword with name 'Preencher PIN Invalido' found.</msg>
-<status status="FAIL" start="2025-05-19T09:59:04.320943" elapsed="0.000394">No keyword with name 'Preencher PIN Invalido' found.</status>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${erro}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-05-19T21:15:32.485398" elapsed="0.000107"/>
 </kw>
-<kw name="Clicar Botao Entrar">
-<status status="NOT RUN" start="2025-05-19T09:59:04.322223" elapsed="0.000137"/>
+<kw name="Log" owner="BuiltIn">
+<arg>[ERRO VISÍVEL] ${texto}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-05-19T21:15:32.485855" elapsed="0.000111"/>
 </kw>
-<kw name="Validar Erro PIN">
-<status status="NOT RUN" start="2025-05-19T09:59:04.323067" elapsed="0.000128"/>
+<var name="${erro}"/>
+<status status="NOT RUN" start="2025-05-19T21:15:32.485097" elapsed="0.001006"/>
+</iter>
+<var>${erro}</var>
+<value>@{erros}</value>
+<status status="NOT RUN" start="2025-05-19T21:15:32.484687" elapsed="0.001548"/>
+</for>
+<status status="PASS" start="2025-05-19T21:15:32.463263" elapsed="0.023204"/>
 </kw>
-<kw name="Capture Screenshot On Failure">
-<status status="NOT RUN" start="2025-05-19T09:59:04.323882" elapsed="0.000125"/>
+<arg>Já sou membro</arg>
+<status status="PASS" start="2025-05-19T21:15:31.683187" elapsed="0.803461"/>
 </kw>
-<tag>login</tag>
-<tag>negativo</tag>
-<status status="FAIL" start="2025-05-19T09:59:02.890718" elapsed="1.434371">No keyword with name 'Preencher PIN Invalido' found.</status>
-</test>
-<test id="s1-t6" name="Login com PIN divergente" line="46">
-<kw name="Preencher Palavras Chave Corretas" owner="keywords">
 <kw name="Inserir Palavras Chave" owner="keywords">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>css=textarea.input.peer</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-05-19T09:59:04.338964" elapsed="0.083084"/>
+<status status="PASS" start="2025-05-19T21:15:32.488560" elapsed="0.073759"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-05-19T09:59:04.424484" level="INFO">Typing text 'sombrinha estilete ramalhete arvore salsinha flores verao abacaxi girassol margarida violeta tulipa' into text field 'css=textarea.input.peer'.</msg>
+<msg time="2025-05-19T21:15:32.563362" level="INFO">Typing text 'garment neither noise flash enable humble embrace typical annual fruit cycle' into text field 'css=textarea.input.peer'.</msg>
 <arg>css=textarea.input.peer</arg>
 <arg>${palavras}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-05-19T09:59:04.423054" elapsed="0.783486"/>
+<status status="PASS" start="2025-05-19T21:15:32.562800" elapsed="0.485822"/>
 </kw>
-<arg>${PALAVRAS_CHAVE_TESTE}</arg>
-<status status="PASS" start="2025-05-19T09:59:04.337487" elapsed="0.869245"/>
+<arg>${PALAVRAS_CHAVE_11}</arg>
+<status status="PASS" start="2025-05-19T21:15:32.487772" elapsed="0.561117"/>
 </kw>
-<status status="PASS" start="2025-05-19T09:59:04.335997" elapsed="0.870865"/>
-</kw>
-<kw name="Clicar Botao Avancar" owner="keywords">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>css=button.button.button-primary.min-w-full</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-05-19T09:59:05.208572" elapsed="0.058581"/>
-</kw>
+<kw name="Acionar Botao Continuar Palavras" owner="keywords">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-05-19T09:59:05.268041" level="INFO">Clicking element 'css=button.button.button-primary.min-w-full'.</msg>
+<msg time="2025-05-19T21:15:33.057353" level="INFO">Clicking element 'css=button.button.button-primary.min-w-full'.</msg>
 <arg>css=button.button.button-primary.min-w-full</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-05-19T09:59:05.267631" elapsed="0.144425"/>
+<status status="PASS" start="2025-05-19T21:15:33.056809" elapsed="0.152861"/>
+</kw>
+<status status="PASS" start="2025-05-19T21:15:33.056114" elapsed="0.153960"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:15:33.420133" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-05-19T21:15:33.218490" elapsed="0.201868"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-19T21:15:33.423907" level="INFO">Mensagens de erro na tela:</msg>
+<arg>Mensagens de erro na tela:</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-19T21:15:33.423583" elapsed="0.000577"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:15:33.452801" level="INFO">${erros} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="ab1924ba2cc9f6982d909d3b80e354a4", element="f.5B3C0398B34DB48E4E31DC7DDCCE7374.d.FEA4A6A85EF4B6C4281B82D53A915D86.e.28")&gt;]</msg>
+<var>${erros}</var>
+<arg>css=.form-error, .form-error.form-error-on-dark-bg</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-05-19T21:15:33.427757" elapsed="0.025158"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:15:33.497217" level="INFO">${texto} = POR FAVOR, DIGITE 12 PALAVRAS</msg>
+<var>${texto}</var>
+<arg>${erro}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-19T21:15:33.454089" elapsed="0.043243"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-19T21:15:33.498101" level="INFO">POR FAVOR, DIGITE 12 PALAVRAS</msg>
+<arg>${texto}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-19T21:15:33.497702" elapsed="0.000548"/>
+</kw>
+<var name="${erro}">&lt;selenium.webdriver.remote.webelement.WebElement (session="ab1924ba2cc9f6982d909d3b80e354a4", element="f.5B3C0398B34DB48E4E31DC7DDCCE7374.d.FEA4A6A85EF4B6C4281B82D53A915D86.e.28")&gt;</var>
+<status status="PASS" start="2025-05-19T21:15:33.453798" elapsed="0.044608"/>
+</iter>
+<var>${erro}</var>
+<value>@{erros}</value>
+<status status="PASS" start="2025-05-19T21:15:33.453364" elapsed="0.045213"/>
+</for>
+<kw name="Verificar Componente Erro Presente" owner="keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=.form-error, .form-error.form-error-on-dark-bg</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-05-19T21:15:33.507305" elapsed="0.029332"/>
+</kw>
+<status status="PASS" start="2025-05-19T21:15:33.506604" elapsed="0.030319"/>
+</kw>
+<tag>critico</tag>
+<tag>funcional</tag>
+<tag>regressivo</tag>
+<status status="PASS" start="2025-05-19T21:15:25.635309" elapsed="7.926964"/>
+</test>
+<test id="s1-t4" name="Tentativa de login sem inserir palavras-chave" line="63">
+<kw name="Abrir Página de Login" owner="keywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:15:33.569275" level="INFO">Opening browser 'chrome' to base url 'https://muda.cambiatus.io/'.</msg>
+<arg>${url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-05-19T21:15:33.568697" elapsed="3.048521"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-05-19T21:15:36.617707" elapsed="7.833733"/>
+</kw>
+<arg>${URL_LOGIN}</arg>
+<status status="PASS" start="2025-05-19T21:15:33.567807" elapsed="10.883955"/>
+</kw>
+<kw name="Acionar Botão" owner="keywords">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:15:44.459742" level="INFO">Clicking element 'xpath=//a[contains(@class, 'button-primary') and contains(text(), 'Já sou membro')]'.</msg>
+<arg>xpath=//a[contains(@class, 'button-primary') and contains(text(), 'Já sou membro')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-19T21:15:44.459322" elapsed="0.229503"/>
+</kw>
+<arg>'${nome_botao}' == 'Já sou membro'</arg>
+<arg>Click Element</arg>
+<arg>xpath=//a[contains(@class, 'button-primary') and contains(text(), 'Já sou membro')]</arg>
+<arg>ELSE IF</arg>
+<arg>'${nome_botao}' == 'Continuar'</arg>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Click Element</arg>
+<arg>css=button.button.button-primary.min-w-full</arg>
+<arg>ELSE IF</arg>
+<arg>'${nome_botao}' == 'Continuar'</arg>
+<arg>Click Element</arg>
+<arg>xpath=//button[contains(., 'Continuar') or contains(., 'Continue')]</arg>
+<arg>ELSE</arg>
+<arg>Click Element</arg>
+<arg>xpath=//*[self::button or self::a][contains(text(), '${nome_botao}')]</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-05-19T21:15:44.458511" elapsed="0.230565"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2025-05-19T09:59:05.913214" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-05-19T21:15:45.190292" level="INFO">Slept 500 milliseconds.</msg>
 <arg>0.5s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-05-19T09:59:05.412423" elapsed="0.501153"/>
+<status status="PASS" start="2025-05-19T21:15:44.689619" elapsed="0.500870"/>
 </kw>
-<status status="PASS" start="2025-05-19T09:59:05.207535" elapsed="0.706424"/>
+<kw name="Varre Erros Visiveis" owner="keywords">
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:15:45.235044" level="INFO">${erros} = []</msg>
+<var>${erros}</var>
+<arg>css=.form-error, .form-error.form-error-on-dark-bg</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-05-19T21:15:45.191681" elapsed="0.043504"/>
 </kw>
-<kw name="Preencher PIN Divergente">
-<msg time="2025-05-19T09:59:05.922486" level="FAIL">No keyword with name 'Preencher PIN Divergente' found.</msg>
-<status status="FAIL" start="2025-05-19T09:59:05.922149" elapsed="0.000648">No keyword with name 'Preencher PIN Divergente' found.</status>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${erro}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-05-19T21:15:45.235984" elapsed="0.000087"/>
 </kw>
-<kw name="Clicar Botao Entrar">
-<status status="NOT RUN" start="2025-05-19T09:59:05.925107" elapsed="0.000261"/>
+<kw name="Log" owner="BuiltIn">
+<arg>[ERRO VISÍVEL] ${texto}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-05-19T21:15:45.236363" elapsed="0.000076"/>
 </kw>
-<kw name="Validar Erro PIN Divergente">
-<status status="NOT RUN" start="2025-05-19T09:59:05.926476" elapsed="0.000185"/>
+<var name="${erro}"/>
+<status status="NOT RUN" start="2025-05-19T21:15:45.235737" elapsed="0.000812"/>
+</iter>
+<var>${erro}</var>
+<value>@{erros}</value>
+<status status="NOT RUN" start="2025-05-19T21:15:45.235406" elapsed="0.001254"/>
+</for>
+<status status="PASS" start="2025-05-19T21:15:45.191015" elapsed="0.045833"/>
 </kw>
-<kw name="Capture Screenshot On Failure">
-<status status="NOT RUN" start="2025-05-19T09:59:05.927617" elapsed="0.000192"/>
+<arg>Já sou membro</arg>
+<status status="PASS" start="2025-05-19T21:15:44.457804" elapsed="0.779185"/>
 </kw>
-<tag>login</tag>
-<tag>negativo</tag>
-<status status="FAIL" start="2025-05-19T09:59:04.333582" elapsed="1.595168">No keyword with name 'Preencher PIN Divergente' found.</status>
+<kw name="Acionar Botao Continuar Palavras" owner="keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:15:45.239384" level="INFO">Clicking element 'css=button.button.button-primary.min-w-full'.</msg>
+<arg>css=button.button.button-primary.min-w-full</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-19T21:15:45.238893" elapsed="0.716776"/>
+</kw>
+<status status="PASS" start="2025-05-19T21:15:45.237802" elapsed="0.718196"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:15:46.276942" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-05-19T21:15:46.032297" elapsed="0.244935"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-19T21:15:46.280031" level="INFO">Mensagens de erro na tela:</msg>
+<arg>Mensagens de erro na tela:</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-19T21:15:46.279691" elapsed="0.000482"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:15:46.309670" level="INFO">${erros} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="bb28416ab009f165b5e27ed4a75fc0b9", element="f.DAC05CB41E7F342C905A177297E9F054.d.3F8D188A37AEE648763C729AAE023C38.e.25")&gt;]</msg>
+<var>${erros}</var>
+<arg>css=.form-error, .form-error.form-error-on-dark-bg</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-05-19T21:15:46.280927" elapsed="0.028842"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:15:46.337161" level="INFO">${texto} = POR FAVOR, DIGITE 12 PALAVRAS</msg>
+<var>${texto}</var>
+<arg>${erro}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-19T21:15:46.310729" elapsed="0.026541"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-19T21:15:46.337901" level="INFO">POR FAVOR, DIGITE 12 PALAVRAS</msg>
+<arg>${texto}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-19T21:15:46.337590" elapsed="0.000423"/>
+</kw>
+<var name="${erro}">&lt;selenium.webdriver.remote.webelement.WebElement (session="bb28416ab009f165b5e27ed4a75fc0b9", element="f.DAC05CB41E7F342C905A177297E9F054.d.3F8D188A37AEE648763C729AAE023C38.e.25")&gt;</var>
+<status status="PASS" start="2025-05-19T21:15:46.310496" elapsed="0.027629"/>
+</iter>
+<var>${erro}</var>
+<value>@{erros}</value>
+<status status="PASS" start="2025-05-19T21:15:46.310147" elapsed="0.028235"/>
+</for>
+<kw name="Verificar Componente Erro Presente" owner="keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=.form-error, .form-error.form-error-on-dark-bg</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-05-19T21:15:46.339844" elapsed="0.030868"/>
+</kw>
+<status status="PASS" start="2025-05-19T21:15:46.339015" elapsed="0.031922"/>
+</kw>
+<tag>critico</tag>
+<tag>funcional</tag>
+<tag>regressivo</tag>
+<status status="PASS" start="2025-05-19T21:15:33.566418" elapsed="12.804974"/>
 </test>
-<test id="s1-t7" name="Visualizar PIN" line="55">
-<kw name="Preencher Palavras Chave Corretas" owner="keywords">
+<test id="s1-t5" name="Tentativa de login com visualização do PIN inserido" line="81">
+<kw name="Abrir Página de Login" owner="keywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:15:46.376560" level="INFO">Opening browser 'chrome' to base url 'https://muda.cambiatus.io/'.</msg>
+<arg>${url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-05-19T21:15:46.375939" elapsed="6.765887"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-05-19T21:15:53.142185" elapsed="0.135278"/>
+</kw>
+<arg>${URL_LOGIN}</arg>
+<status status="PASS" start="2025-05-19T21:15:46.374914" elapsed="6.902868"/>
+</kw>
+<kw name="Acionar Botão" owner="keywords">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:15:53.282848" level="INFO">Clicking element 'xpath=//a[contains(@class, 'button-primary') and contains(text(), 'Já sou membro')]'.</msg>
+<arg>xpath=//a[contains(@class, 'button-primary') and contains(text(), 'Já sou membro')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-19T21:15:53.282266" elapsed="0.251291"/>
+</kw>
+<arg>'${nome_botao}' == 'Já sou membro'</arg>
+<arg>Click Element</arg>
+<arg>xpath=//a[contains(@class, 'button-primary') and contains(text(), 'Já sou membro')]</arg>
+<arg>ELSE IF</arg>
+<arg>'${nome_botao}' == 'Continuar'</arg>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Click Element</arg>
+<arg>css=button.button.button-primary.min-w-full</arg>
+<arg>ELSE IF</arg>
+<arg>'${nome_botao}' == 'Continuar'</arg>
+<arg>Click Element</arg>
+<arg>xpath=//button[contains(., 'Continuar') or contains(., 'Continue')]</arg>
+<arg>ELSE</arg>
+<arg>Click Element</arg>
+<arg>xpath=//*[self::button or self::a][contains(text(), '${nome_botao}')]</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-05-19T21:15:53.279615" elapsed="0.254170"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-05-19T21:15:54.034991" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-05-19T21:15:53.534204" elapsed="0.501121"/>
+</kw>
+<kw name="Varre Erros Visiveis" owner="keywords">
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:15:54.084214" level="INFO">${erros} = []</msg>
+<var>${erros}</var>
+<arg>css=.form-error, .form-error.form-error-on-dark-bg</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-05-19T21:15:54.037038" elapsed="0.047376"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${erro}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-05-19T21:15:54.085983" elapsed="0.000185"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>[ERRO VISÍVEL] ${texto}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-05-19T21:15:54.086795" elapsed="0.000172"/>
+</kw>
+<var name="${erro}"/>
+<status status="NOT RUN" start="2025-05-19T21:15:54.085442" elapsed="0.001786"/>
+</iter>
+<var>${erro}</var>
+<value>@{erros}</value>
+<status status="NOT RUN" start="2025-05-19T21:15:54.084804" elapsed="0.002679"/>
+</for>
+<status status="PASS" start="2025-05-19T21:15:54.036131" elapsed="0.051753"/>
+</kw>
+<arg>Já sou membro</arg>
+<status status="PASS" start="2025-05-19T21:15:53.278624" elapsed="0.809587"/>
+</kw>
 <kw name="Inserir Palavras Chave" owner="keywords">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>css=textarea.input.peer</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-05-19T09:59:05.940232" elapsed="0.067677"/>
+<status status="PASS" start="2025-05-19T21:15:54.096098" elapsed="0.082256"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-05-19T09:59:06.012301" level="INFO">Typing text 'sombrinha estilete ramalhete arvore salsinha flores verao abacaxi girassol margarida violeta tulipa' into text field 'css=textarea.input.peer'.</msg>
+<msg time="2025-05-19T21:15:54.179379" level="INFO">Typing text 'garment neither noise flash enable humble embrace typical annual fruit cycle degree' into text field 'css=textarea.input.peer'.</msg>
 <arg>css=textarea.input.peer</arg>
 <arg>${palavras}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-05-19T09:59:06.010506" elapsed="0.928203"/>
+<status status="PASS" start="2025-05-19T21:15:54.178675" elapsed="0.430171"/>
 </kw>
 <arg>${PALAVRAS_CHAVE_TESTE}</arg>
-<status status="PASS" start="2025-05-19T09:59:05.937822" elapsed="1.001118"/>
+<status status="PASS" start="2025-05-19T21:15:54.094243" elapsed="0.514858"/>
 </kw>
-<status status="PASS" start="2025-05-19T09:59:05.935983" elapsed="1.003131"/>
-</kw>
-<kw name="Clicar Botao Avancar" owner="keywords">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>css=button.button.button-primary.min-w-full</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-05-19T09:59:06.945509" elapsed="0.048413"/>
-</kw>
+<kw name="Acionar Botão" owner="keywords">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-05-19T09:59:06.994538" level="INFO">Clicking element 'css=button.button.button-primary.min-w-full'.</msg>
+<msg time="2025-05-19T21:15:54.611967" level="INFO">Clicking element 'css=button.button.button-primary.min-w-full'.</msg>
 <arg>css=button.button.button-primary.min-w-full</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-05-19T09:59:06.994232" elapsed="0.076791"/>
+<status status="PASS" start="2025-05-19T21:15:54.611609" elapsed="0.136937"/>
+</kw>
+<arg>Click Element</arg>
+<arg>css=button.button.button-primary.min-w-full</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-05-19T21:15:54.611214" elapsed="0.137584"/>
+</kw>
+<arg>'${nome_botao}' == 'Já sou membro'</arg>
+<arg>Click Element</arg>
+<arg>xpath=//a[contains(@class, 'button-primary') and contains(text(), 'Já sou membro')]</arg>
+<arg>ELSE IF</arg>
+<arg>'${nome_botao}' == 'Continuar'</arg>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Click Element</arg>
+<arg>css=button.button.button-primary.min-w-full</arg>
+<arg>ELSE IF</arg>
+<arg>'${nome_botao}' == 'Continuar'</arg>
+<arg>Click Element</arg>
+<arg>xpath=//button[contains(., 'Continuar') or contains(., 'Continue')]</arg>
+<arg>ELSE</arg>
+<arg>Click Element</arg>
+<arg>xpath=//*[self::button or self::a][contains(text(), '${nome_botao}')]</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-05-19T21:15:54.610365" elapsed="0.138719"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2025-05-19T09:59:07.571867" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-05-19T21:15:55.250108" level="INFO">Slept 500 milliseconds.</msg>
 <arg>0.5s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-05-19T09:59:07.071288" elapsed="0.500778"/>
+<status status="PASS" start="2025-05-19T21:15:54.749539" elapsed="0.501206"/>
 </kw>
-<status status="PASS" start="2025-05-19T09:59:06.944934" elapsed="0.627386"/>
+<kw name="Varre Erros Visiveis" owner="keywords">
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:15:55.278403" level="INFO">${erros} = []</msg>
+<var>${erros}</var>
+<arg>css=.form-error, .form-error.form-error-on-dark-bg</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-05-19T21:15:55.253405" elapsed="0.025169"/>
 </kw>
-<kw name="Visualizar PIN">
-<msg time="2025-05-19T09:59:07.608351" level="FAIL">No keyword with name 'Visualizar PIN' found.</msg>
-<status status="FAIL" start="2025-05-19T09:59:07.608210" elapsed="0.000263">No keyword with name 'Visualizar PIN' found.</status>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${erro}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-05-19T21:15:55.280353" elapsed="0.000208"/>
 </kw>
-<kw name="Validar PIN Visivel">
-<status status="NOT RUN" start="2025-05-19T09:59:07.711425" elapsed="0.000105"/>
+<kw name="Log" owner="BuiltIn">
+<arg>[ERRO VISÍVEL] ${texto}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-05-19T21:15:55.281212" elapsed="0.000167"/>
 </kw>
-<tag>login</tag>
-<tag>visual</tag>
-<status status="FAIL" start="2025-05-19T09:59:05.933876" elapsed="1.821746">No keyword with name 'Visualizar PIN' found.</status>
+<var name="${erro}"/>
+<status status="NOT RUN" start="2025-05-19T21:15:55.279555" elapsed="0.002085"/>
+</iter>
+<var>${erro}</var>
+<value>@{erros}</value>
+<status status="NOT RUN" start="2025-05-19T21:15:55.279012" elapsed="0.002895"/>
+</for>
+<status status="PASS" start="2025-05-19T21:15:55.252163" elapsed="0.030267"/>
+</kw>
+<arg>Continuar</arg>
+<status status="PASS" start="2025-05-19T21:15:54.609699" elapsed="0.672995"/>
+</kw>
+<kw name="Inserir Pin" owner="keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:15:55.285746" level="INFO">Typing text '147258' into text field 'css=#pin-input'.</msg>
+<arg>css=#pin-input</arg>
+<arg>${pin}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-19T21:15:55.285048" elapsed="0.128844"/>
+</kw>
+<arg>${PIN_TESTE}</arg>
+<status status="PASS" start="2025-05-19T21:15:55.283887" elapsed="0.130166"/>
+</kw>
+<kw name="Confirmar Pin" owner="keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:15:55.416022" level="INFO">Typing text '147258' into text field 'css=#pin-confirmation-input'.</msg>
+<arg>css=#pin-confirmation-input</arg>
+<arg>${pin}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-19T21:15:55.415535" elapsed="0.183583"/>
+</kw>
+<arg>${PIN_TESTE}</arg>
+<status status="PASS" start="2025-05-19T21:15:55.414720" elapsed="0.184693"/>
+</kw>
+<kw name="Acionar Botao Mostrar PIN Custom" owner="keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//button[contains(@class, 'uppercase') and contains(., 'Mostrar')]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-05-19T21:15:55.600535" elapsed="0.036525"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:15:55.637821" level="INFO">Clicking element 'xpath=//button[contains(@class, 'uppercase') and contains(., 'Mostrar')]'.</msg>
+<arg>xpath=//button[contains(@class, 'uppercase') and contains(., 'Mostrar')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-19T21:15:55.637454" elapsed="0.146801"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-05-19T21:15:56.285451" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-05-19T21:15:55.784623" elapsed="0.501120"/>
+</kw>
+<status status="PASS" start="2025-05-19T21:15:55.600037" elapsed="0.686054"/>
+</kw>
+<kw name="Verificar PIN Exibido" owner="keywords">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//input[@type='text' and contains(@id, 'pin-input')]</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-05-19T21:15:56.287964" elapsed="0.024562"/>
+</kw>
+<status status="PASS" start="2025-05-19T21:15:56.287014" elapsed="0.025758"/>
+</kw>
+<tag>funcional</tag>
+<tag>nao-bloqueante</tag>
+<tag>regressivo</tag>
+<status status="PASS" start="2025-05-19T21:15:46.373415" elapsed="9.939866"/>
+</test>
+<test id="s1-t6" name="Tentativa de login com PIN inválido - 3 caracteres" line="100">
+<kw name="Abrir Página de Login" owner="keywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:15:56.318445" level="INFO">Opening browser 'chrome' to base url 'https://muda.cambiatus.io/'.</msg>
+<arg>${url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-05-19T21:15:56.317824" elapsed="9.594206"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-05-19T21:16:05.912385" elapsed="0.055681"/>
+</kw>
+<arg>${URL_LOGIN}</arg>
+<status status="PASS" start="2025-05-19T21:15:56.316981" elapsed="9.651250"/>
+</kw>
+<kw name="Acionar Botão" owner="keywords">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:16:05.970274" level="INFO">Clicking element 'xpath=//a[contains(@class, 'button-primary') and contains(text(), 'Já sou membro')]'.</msg>
+<arg>xpath=//a[contains(@class, 'button-primary') and contains(text(), 'Já sou membro')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-19T21:16:05.969872" elapsed="0.200914"/>
+</kw>
+<arg>'${nome_botao}' == 'Já sou membro'</arg>
+<arg>Click Element</arg>
+<arg>xpath=//a[contains(@class, 'button-primary') and contains(text(), 'Já sou membro')]</arg>
+<arg>ELSE IF</arg>
+<arg>'${nome_botao}' == 'Continuar'</arg>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Click Element</arg>
+<arg>css=button.button.button-primary.min-w-full</arg>
+<arg>ELSE IF</arg>
+<arg>'${nome_botao}' == 'Continuar'</arg>
+<arg>Click Element</arg>
+<arg>xpath=//button[contains(., 'Continuar') or contains(., 'Continue')]</arg>
+<arg>ELSE</arg>
+<arg>Click Element</arg>
+<arg>xpath=//*[self::button or self::a][contains(text(), '${nome_botao}')]</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-05-19T21:16:05.969317" elapsed="0.201761"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-05-19T21:16:06.672255" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-05-19T21:16:06.171531" elapsed="0.500893"/>
+</kw>
+<kw name="Varre Erros Visiveis" owner="keywords">
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:16:06.689786" level="INFO">${erros} = []</msg>
+<var>${erros}</var>
+<arg>css=.form-error, .form-error.form-error-on-dark-bg</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-05-19T21:16:06.673458" elapsed="0.016400"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${erro}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-05-19T21:16:06.690652" elapsed="0.000088"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>[ERRO VISÍVEL] ${texto}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-05-19T21:16:06.691040" elapsed="0.000094"/>
+</kw>
+<var name="${erro}"/>
+<status status="NOT RUN" start="2025-05-19T21:16:06.690414" elapsed="0.000842"/>
+</iter>
+<var>${erro}</var>
+<value>@{erros}</value>
+<status status="NOT RUN" start="2025-05-19T21:16:06.690088" elapsed="0.001286"/>
+</for>
+<status status="PASS" start="2025-05-19T21:16:06.672965" elapsed="0.018605"/>
+</kw>
+<arg>Já sou membro</arg>
+<status status="PASS" start="2025-05-19T21:16:05.968821" elapsed="0.722981"/>
+</kw>
+<kw name="Inserir Palavras Chave" owner="keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=textarea.input.peer</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-05-19T21:16:06.693563" elapsed="0.060490"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:16:06.755236" level="INFO">Typing text 'garment neither noise flash enable humble embrace typical annual fruit cycle degree' into text field 'css=textarea.input.peer'.</msg>
+<arg>css=textarea.input.peer</arg>
+<arg>${palavras}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-19T21:16:06.754692" elapsed="0.472502"/>
+</kw>
+<arg>${PALAVRAS_CHAVE_TESTE}</arg>
+<status status="PASS" start="2025-05-19T21:16:06.692706" elapsed="0.534745"/>
+</kw>
+<kw name="Acionar Botão" owner="keywords">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:16:07.230431" level="INFO">Clicking element 'css=button.button.button-primary.min-w-full'.</msg>
+<arg>css=button.button.button-primary.min-w-full</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-19T21:16:07.230060" elapsed="0.146704"/>
+</kw>
+<arg>Click Element</arg>
+<arg>css=button.button.button-primary.min-w-full</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-05-19T21:16:07.229662" elapsed="0.147347"/>
+</kw>
+<arg>'${nome_botao}' == 'Já sou membro'</arg>
+<arg>Click Element</arg>
+<arg>xpath=//a[contains(@class, 'button-primary') and contains(text(), 'Já sou membro')]</arg>
+<arg>ELSE IF</arg>
+<arg>'${nome_botao}' == 'Continuar'</arg>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Click Element</arg>
+<arg>css=button.button.button-primary.min-w-full</arg>
+<arg>ELSE IF</arg>
+<arg>'${nome_botao}' == 'Continuar'</arg>
+<arg>Click Element</arg>
+<arg>xpath=//button[contains(., 'Continuar') or contains(., 'Continue')]</arg>
+<arg>ELSE</arg>
+<arg>Click Element</arg>
+<arg>xpath=//*[self::button or self::a][contains(text(), '${nome_botao}')]</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-05-19T21:16:07.228779" elapsed="0.148997"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-05-19T21:16:07.879422" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-05-19T21:16:07.378481" elapsed="0.501097"/>
+</kw>
+<kw name="Varre Erros Visiveis" owner="keywords">
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:16:07.892755" level="INFO">${erros} = []</msg>
+<var>${erros}</var>
+<arg>css=.form-error, .form-error.form-error-on-dark-bg</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-05-19T21:16:07.880272" elapsed="0.012583"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${erro}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-05-19T21:16:07.893609" elapsed="0.000080"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>[ERRO VISÍVEL] ${texto}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-05-19T21:16:07.893957" elapsed="0.000071"/>
+</kw>
+<var name="${erro}"/>
+<status status="NOT RUN" start="2025-05-19T21:16:07.893366" elapsed="0.000773"/>
+</iter>
+<var>${erro}</var>
+<value>@{erros}</value>
+<status status="NOT RUN" start="2025-05-19T21:16:07.893050" elapsed="0.001200"/>
+</for>
+<status status="PASS" start="2025-05-19T21:16:07.879902" elapsed="0.014582"/>
+</kw>
+<arg>Continuar</arg>
+<status status="PASS" start="2025-05-19T21:16:07.228093" elapsed="0.666624"/>
+</kw>
+<kw name="Inserir Pin" owner="keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:16:07.896635" level="INFO">Typing text '123' into text field 'css=#pin-input'.</msg>
+<arg>css=#pin-input</arg>
+<arg>${pin}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-19T21:16:07.896267" elapsed="0.102890"/>
+</kw>
+<arg>${PIN_INVALIDO}</arg>
+<status status="PASS" start="2025-05-19T21:16:07.895522" elapsed="0.103853"/>
+</kw>
+<kw name="Confirmar Pin" owner="keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:16:08.001368" level="INFO">Typing text '123' into text field 'css=#pin-confirmation-input'.</msg>
+<arg>css=#pin-confirmation-input</arg>
+<arg>${pin}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-19T21:16:08.000804" elapsed="0.132557"/>
+</kw>
+<arg>${PIN_INVALIDO}</arg>
+<status status="PASS" start="2025-05-19T21:16:07.999970" elapsed="0.133646"/>
+</kw>
+<kw name="Acionar Botao Entrar PIN" owner="keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=button.button.button-primary.min-w-full.mt-auto</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-05-19T21:16:08.134865" elapsed="0.041837"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:16:08.177197" level="INFO">Clicking element 'css=button.button.button-primary.min-w-full.mt-auto'.</msg>
+<arg>css=button.button.button-primary.min-w-full.mt-auto</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-19T21:16:08.176946" elapsed="0.159224"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-05-19T21:16:08.838044" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-05-19T21:16:08.336750" elapsed="0.501651"/>
+</kw>
+<status status="PASS" start="2025-05-19T21:16:08.134261" elapsed="0.704505"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:16:09.074617" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-05-19T21:16:08.839978" elapsed="0.234933"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-19T21:16:09.075870" level="INFO">Mensagens de erro na tela:</msg>
+<arg>Mensagens de erro na tela:</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-19T21:16:09.075506" elapsed="0.000630"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:16:09.101768" level="INFO">${erros} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="1bb0b14917ef4dd7dacd82675d7db010", element="f.B29C4CC7D06A025FA43BCF1C63FB2920.d.1FF0DB6D6D195AD262BEC08FCBC11C67.e.38")&gt;, &lt;selenium.webdriv...</msg>
+<var>${erros}</var>
+<arg>css=.form-error, .form-error.form-error-on-dark-bg</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-05-19T21:16:09.077830" elapsed="0.024115"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:16:09.150187" level="INFO">${texto} = O TEXTO DEVE TER EXATAMENTE 6 CARACTERES</msg>
+<var>${texto}</var>
+<arg>${erro}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-19T21:16:09.103394" elapsed="0.046921"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-19T21:16:09.151059" level="INFO">O TEXTO DEVE TER EXATAMENTE 6 CARACTERES</msg>
+<arg>${texto}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-19T21:16:09.150679" elapsed="0.000549"/>
+</kw>
+<var name="${erro}">&lt;selenium.webdriver.remote.webelement.WebElement (session="1bb0b14917ef4dd7dacd82675d7db010", element="f.B29C4CC7D06A025FA43BCF1C63FB2920.d.1FF0DB6D6D195AD262BEC08FCBC11C67.e.38")&gt;</var>
+<status status="PASS" start="2025-05-19T21:16:09.103070" elapsed="0.048428"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:16:09.170794" level="INFO">${texto} = O TEXTO DEVE TER EXATAMENTE 6 CARACTERES</msg>
+<var>${texto}</var>
+<arg>${erro}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-19T21:16:09.152201" elapsed="0.018711"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-19T21:16:09.171536" level="INFO">O TEXTO DEVE TER EXATAMENTE 6 CARACTERES</msg>
+<arg>${texto}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-19T21:16:09.171244" elapsed="0.000416"/>
+</kw>
+<var name="${erro}">&lt;selenium.webdriver.remote.webelement.WebElement (session="1bb0b14917ef4dd7dacd82675d7db010", element="f.B29C4CC7D06A025FA43BCF1C63FB2920.d.1FF0DB6D6D195AD262BEC08FCBC11C67.e.39")&gt;</var>
+<status status="PASS" start="2025-05-19T21:16:09.151899" elapsed="0.019955"/>
+</iter>
+<var>${erro}</var>
+<value>@{erros}</value>
+<status status="PASS" start="2025-05-19T21:16:09.102589" elapsed="0.069492"/>
+</for>
+<kw name="Verificar Componente Erro Presente" owner="keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=.form-error, .form-error.form-error-on-dark-bg</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-05-19T21:16:09.176146" elapsed="0.023307"/>
+</kw>
+<status status="PASS" start="2025-05-19T21:16:09.175432" elapsed="0.024188"/>
+</kw>
+<tag>critico</tag>
+<tag>funcional</tag>
+<tag>regressivo</tag>
+<status status="PASS" start="2025-05-19T21:15:56.315602" elapsed="12.884392"/>
+</test>
+<test id="s1-t7" name="Tentativa de login com PIN divergente" line="125">
+<kw name="Abrir Página de Login" owner="keywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:16:09.203815" level="INFO">Opening browser 'chrome' to base url 'https://muda.cambiatus.io/'.</msg>
+<arg>${url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-05-19T21:16:09.203370" elapsed="9.199531"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-05-19T21:16:18.403324" elapsed="0.046948"/>
+</kw>
+<arg>${URL_LOGIN}</arg>
+<status status="PASS" start="2025-05-19T21:16:09.202585" elapsed="9.247958"/>
+</kw>
+<kw name="Acionar Botão" owner="keywords">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:16:18.453419" level="INFO">Clicking element 'xpath=//a[contains(@class, 'button-primary') and contains(text(), 'Já sou membro')]'.</msg>
+<arg>xpath=//a[contains(@class, 'button-primary') and contains(text(), 'Já sou membro')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-19T21:16:18.453068" elapsed="0.208216"/>
+</kw>
+<arg>'${nome_botao}' == 'Já sou membro'</arg>
+<arg>Click Element</arg>
+<arg>xpath=//a[contains(@class, 'button-primary') and contains(text(), 'Já sou membro')]</arg>
+<arg>ELSE IF</arg>
+<arg>'${nome_botao}' == 'Continuar'</arg>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Click Element</arg>
+<arg>css=button.button.button-primary.min-w-full</arg>
+<arg>ELSE IF</arg>
+<arg>'${nome_botao}' == 'Continuar'</arg>
+<arg>Click Element</arg>
+<arg>xpath=//button[contains(., 'Continuar') or contains(., 'Continue')]</arg>
+<arg>ELSE</arg>
+<arg>Click Element</arg>
+<arg>xpath=//*[self::button or self::a][contains(text(), '${nome_botao}')]</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-05-19T21:16:18.452368" elapsed="0.209168"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-05-19T21:16:19.162779" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-05-19T21:16:18.662143" elapsed="0.501070"/>
+</kw>
+<kw name="Varre Erros Visiveis" owner="keywords">
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:16:19.205325" level="INFO">${erros} = []</msg>
+<var>${erros}</var>
+<arg>css=.form-error, .form-error.form-error-on-dark-bg</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-05-19T21:16:19.165526" elapsed="0.039970"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${erro}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-05-19T21:16:19.207624" elapsed="0.000278"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>[ERRO VISÍVEL] ${texto}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-05-19T21:16:19.208816" elapsed="0.000190"/>
+</kw>
+<var name="${erro}"/>
+<status status="NOT RUN" start="2025-05-19T21:16:19.206933" elapsed="0.002296"/>
+</iter>
+<var>${erro}</var>
+<value>@{erros}</value>
+<status status="NOT RUN" start="2025-05-19T21:16:19.205857" elapsed="0.003692"/>
+</for>
+<status status="PASS" start="2025-05-19T21:16:19.164286" elapsed="0.045645"/>
+</kw>
+<arg>Já sou membro</arg>
+<status status="PASS" start="2025-05-19T21:16:18.451288" elapsed="0.758921"/>
+</kw>
+<kw name="Inserir Palavras Chave" owner="keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=textarea.input.peer</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-05-19T21:16:19.212834" elapsed="0.141170"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:16:19.355179" level="INFO">Typing text 'garment neither noise flash enable humble embrace typical annual fruit cycle degree' into text field 'css=textarea.input.peer'.</msg>
+<arg>css=textarea.input.peer</arg>
+<arg>${palavras}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-19T21:16:19.354596" elapsed="0.450033"/>
+</kw>
+<arg>${PALAVRAS_CHAVE_TESTE}</arg>
+<status status="PASS" start="2025-05-19T21:16:19.211562" elapsed="0.593346"/>
+</kw>
+<kw name="Acionar Botão" owner="keywords">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:16:19.809271" level="INFO">Clicking element 'css=button.button.button-primary.min-w-full'.</msg>
+<arg>css=button.button.button-primary.min-w-full</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-19T21:16:19.808814" elapsed="0.125291"/>
+</kw>
+<arg>Click Element</arg>
+<arg>css=button.button.button-primary.min-w-full</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-05-19T21:16:19.808265" elapsed="0.126071"/>
+</kw>
+<arg>'${nome_botao}' == 'Já sou membro'</arg>
+<arg>Click Element</arg>
+<arg>xpath=//a[contains(@class, 'button-primary') and contains(text(), 'Já sou membro')]</arg>
+<arg>ELSE IF</arg>
+<arg>'${nome_botao}' == 'Continuar'</arg>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Click Element</arg>
+<arg>css=button.button.button-primary.min-w-full</arg>
+<arg>ELSE IF</arg>
+<arg>'${nome_botao}' == 'Continuar'</arg>
+<arg>Click Element</arg>
+<arg>xpath=//button[contains(., 'Continuar') or contains(., 'Continue')]</arg>
+<arg>ELSE</arg>
+<arg>Click Element</arg>
+<arg>xpath=//*[self::button or self::a][contains(text(), '${nome_botao}')]</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-05-19T21:16:19.807132" elapsed="0.127380"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-05-19T21:16:20.435998" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-05-19T21:16:19.935033" elapsed="0.501298"/>
+</kw>
+<kw name="Varre Erros Visiveis" owner="keywords">
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:16:20.469941" level="INFO">${erros} = []</msg>
+<var>${erros}</var>
+<arg>css=.form-error, .form-error.form-error-on-dark-bg</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-05-19T21:16:20.438010" elapsed="0.032200"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${erro}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-05-19T21:16:20.472283" elapsed="0.000231"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>[ERRO VISÍVEL] ${texto}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-05-19T21:16:20.473401" elapsed="0.000315"/>
+</kw>
+<var name="${erro}"/>
+<status status="NOT RUN" start="2025-05-19T21:16:20.471626" elapsed="0.002452"/>
+</iter>
+<var>${erro}</var>
+<value>@{erros}</value>
+<status status="NOT RUN" start="2025-05-19T21:16:20.470762" elapsed="0.003668"/>
+</for>
+<status status="PASS" start="2025-05-19T21:16:20.437117" elapsed="0.037786"/>
+</kw>
+<arg>Continuar</arg>
+<status status="PASS" start="2025-05-19T21:16:19.806306" elapsed="0.668874"/>
+</kw>
+<kw name="Inserir Pin" owner="keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:16:20.480643" level="INFO">Typing text '147258' into text field 'css=#pin-input'.</msg>
+<arg>css=#pin-input</arg>
+<arg>${pin}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-19T21:16:20.479443" elapsed="0.171295"/>
+</kw>
+<arg>147258</arg>
+<status status="PASS" start="2025-05-19T21:16:20.477720" elapsed="0.173198"/>
+</kw>
+<kw name="Confirmar Pin" owner="keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:16:20.652521" level="INFO">Typing text '258147' into text field 'css=#pin-confirmation-input'.</msg>
+<arg>css=#pin-confirmation-input</arg>
+<arg>${pin}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-19T21:16:20.651954" elapsed="0.184598"/>
+</kw>
+<arg>258147</arg>
+<status status="PASS" start="2025-05-19T21:16:20.651445" elapsed="0.185381"/>
+</kw>
+<kw name="Acionar Botao Entrar PIN" owner="keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=button.button.button-primary.min-w-full.mt-auto</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-05-19T21:16:20.838152" elapsed="0.045842"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:16:20.884739" level="INFO">Clicking element 'css=button.button.button-primary.min-w-full.mt-auto'.</msg>
+<arg>css=button.button.button-primary.min-w-full.mt-auto</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-19T21:16:20.884298" elapsed="0.109003"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-05-19T21:16:21.494891" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-05-19T21:16:20.993682" elapsed="0.501599"/>
+</kw>
+<status status="PASS" start="2025-05-19T21:16:20.837587" elapsed="0.658270"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:16:21.714696" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-05-19T21:16:21.497064" elapsed="0.217981"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-19T21:16:21.716625" level="INFO">Mensagens de erro na tela:</msg>
+<arg>Mensagens de erro na tela:</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-19T21:16:21.716071" elapsed="0.000736"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:16:21.752531" level="INFO">${erros} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="937269fd0d3c94588a12c49d411e4d2d", element="f.6616B4A14E0227CCA6CE3813A75F406F.d.8CE8893194C2660364AB952225AE4E0B.e.38")&gt;]</msg>
+<var>${erros}</var>
+<arg>css=.form-error, .form-error.form-error-on-dark-bg</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-05-19T21:16:21.718352" elapsed="0.034352"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-05-19T21:16:21.782854" level="INFO">${texto} = DIGITE O MESMO PIN ACIMA</msg>
+<var>${texto}</var>
+<arg>${erro}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-19T21:16:21.754694" elapsed="0.028229"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-19T21:16:21.783520" level="INFO">DIGITE O MESMO PIN ACIMA</msg>
+<arg>${texto}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-19T21:16:21.783205" elapsed="0.000406"/>
+</kw>
+<var name="${erro}">&lt;selenium.webdriver.remote.webelement.WebElement (session="937269fd0d3c94588a12c49d411e4d2d", element="f.6616B4A14E0227CCA6CE3813A75F406F.d.8CE8893194C2660364AB952225AE4E0B.e.38")&gt;</var>
+<status status="PASS" start="2025-05-19T21:16:21.754101" elapsed="0.029595"/>
+</iter>
+<var>${erro}</var>
+<value>@{erros}</value>
+<status status="PASS" start="2025-05-19T21:16:21.753395" elapsed="0.030386"/>
+</for>
+<kw name="Verificar Componente Erro Presente" owner="keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=.form-error, .form-error.form-error-on-dark-bg</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-05-19T21:16:21.785024" elapsed="0.026992"/>
+</kw>
+<status status="PASS" start="2025-05-19T21:16:21.784335" elapsed="0.027918"/>
+</kw>
+<tag>critico</tag>
+<tag>funcional</tag>
+<tag>regressivo</tag>
+<status status="PASS" start="2025-05-19T21:16:09.201752" elapsed="12.610964"/>
 </test>
 <kw name="Fechar Navegador" owner="keywords" type="TEARDOWN">
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-05-19T09:59:07.785008" elapsed="2.758296"/>
+<status status="PASS" start="2025-05-19T21:16:21.817049" elapsed="2.333239"/>
 </kw>
-<status status="PASS" start="2025-05-19T09:59:07.775328" elapsed="2.768609"/>
+<status status="PASS" start="2025-05-19T21:16:21.816365" elapsed="2.334279"/>
 </kw>
-<status status="FAIL" start="2025-05-19T09:58:49.365812" elapsed="21.178424"/>
+<doc>Testes automatizados para Login</doc>
+<status status="PASS" start="2025-05-19T21:15:08.739590" elapsed="75.411248"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="7" skip="0">All Tests</stat>
+<stat pass="7" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="0" fail="7" skip="0">login</stat>
-<stat pass="0" fail="5" skip="0">negativo</stat>
-<stat pass="0" fail="1" skip="0">positivo</stat>
-<stat pass="0" fail="1" skip="0">visual</stat>
+<stat pass="6" fail="0" skip="0">critico</stat>
+<stat pass="7" fail="0" skip="0">funcional</stat>
+<stat pass="1" fail="0" skip="0">nao-bloqueante</stat>
+<stat pass="7" fail="0" skip="0">regressivo</stat>
+<stat pass="1" fail="0" skip="0">smoke</stat>
 </tag>
 <suite>
-<stat name="Login" id="s1" pass="0" fail="7" skip="0">Login</stat>
+<stat name="Login" id="s1" pass="7" fail="0" skip="0">Login</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2025-05-19T09:58:49.503468" level="ERROR">Error in file 'C:\Users\Ivan\Documents\Trabalho_estudo\Muda-frontend\qa\automation\resources\keywords.robot' on line 4: Setting 'Suite Teardown' is not allowed in resource file.</msg>
+<msg time="2025-05-19T21:15:08.723552" level="ERROR">Error in file 'C:\Users\Ivan\Documents\Trabalho_estudo\Muda-frontend\qa\automation\login.robot' on line 2: Non-existing setting '&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD'.</msg>
+<msg time="2025-05-19T21:15:08.811733" level="ERROR">Error in file 'C:\Users\Ivan\Documents\Trabalho_estudo\Muda-frontend\qa\automation\resources\keywords.robot' on line 4: Setting 'Suite Teardown' is not allowed in resource file.</msg>
 </errors>
 </robot>
